@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+header {
+    background-color: #2790B0;
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    font-weight: bold
+}
+h2{
+    color: #fff;
+    margin: 0px 200px;
+}
+.btn-abrir{
+    color : #fff;
+    font-size: 25px;
+}
+nav{
+    height: 100%;
+    width: 0;
+    background-color: #479AFF;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+nav a {
+    color: #fff;
+    font-size: 25px;
+    display: block;
+    padding: 12px 10px 12px 32px ;
+}
+nav a:hover{
+    color: #2790B0;
+    background-color: #fff;
+}
