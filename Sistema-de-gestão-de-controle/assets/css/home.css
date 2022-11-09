@@ -5,6 +5,7 @@ body {
 a {
     text-decoration: none;
 }
+
 header {
     background-color: #2790B0;
     padding: 1em;
@@ -12,15 +13,18 @@ header {
     flex-direction: row;
     font-weight: bold
 }
-h2{
+
+h2 {
     color: #fff;
     margin: 0px 200px;
 }
-.btn-abrir{
-    color : #fff;
+
+.btn-abrir {
+    color: #fff;
     font-size: 25px;
 }
-nav{
+
+nav {
     height: 100%;
     width: 0;
     background-color: #0000a0;
@@ -31,34 +35,44 @@ nav{
     overflow: hidden;
     justify-content: center;
 }
+
 nav a {
     color: #fff;
     font-size: 1.5em;
     display: block;
-    padding: 12px 10px 12px 32px ;
+    padding: 12px 10px 12px 32px;
 }
+
 nav img {
     padding: 1em;
     padding-left: 1.8em;
     max-width: 50%;
     max-height: 50%;
 }
-nav a:hover{
+
+nav a:hover {
     color: #2790B0;
     background-color: #fff;
 }
-.nav1{
+
+.nav1 {
     display: flex;
     justify-content: center;
 }
-.itens{
+
+.itens {
     display: flex;
     flex-direction: row;
     gap: 15px;
     align-items: center;
     padding-top: 0.3em;
 }
-.itens img{
+
+.itens img {
     max-width: 18%;
     max-height: 18%;
+}
+
+.tabela {
+    margin: 10em 50em;
 }
