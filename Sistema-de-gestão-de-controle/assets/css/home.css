@@ -1,3 +1,8 @@
+/* Alterar fonte do documento */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 body {
     margin: 0;
 }
@@ -44,10 +49,9 @@ nav a {
 }
 
 nav img {
-    padding: 1em;
-    padding-left: 1.8em;
     max-width: 50%;
     max-height: 50%;
+    padding: 0.5em;
 }
 
 nav a:hover {
@@ -73,6 +77,47 @@ nav a:hover {
     max-height: 18%;
 }
 
-.tabela {
+#tb-vendas {
+    margin: 5em 30em;
+    display: none;
+}
+
+#tb-compras {
     margin: 10em 50em;
+    display: none;
+}
+#tb-usuario {
+    margin: 10em 50em;
+    display: none;
+}
+#tb-produto {
+    margin: 10em 50em;
+    display: none;
+}
+
+/* Estilização das tabelas */
+table,
+tr,
+th,
+td {
+    border: 1px solid #000;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 5px 10px;
+}
+
+th {
+    background-color: #0000a0;
+    color: #fff;
+}
+
+table tr:nth-child(odd) {
+    background-color: #ddd;
+}
+
+table tr:nth-child(even) {
+    background-color: #fff;
 }
