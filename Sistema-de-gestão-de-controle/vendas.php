@@ -98,5 +98,7 @@ class Vendas{
 }
 interface vendasDao{
     public function addVendas(Vendas $v);
-    public function pegaTodas();
+    public function listarVendas();
+    public function deletar(Vendas $v);
+    public function editar(Vendas $v);
 }

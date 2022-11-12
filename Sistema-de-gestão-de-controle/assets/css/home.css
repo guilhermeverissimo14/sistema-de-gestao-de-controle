@@ -5,6 +5,7 @@
 
 body {
     margin: 0;
+    background: #5d5b5b;
 }
 
 a {
@@ -78,20 +79,20 @@ nav a:hover {
 }
 
 #tb-vendas {
-    margin: 5em 30em;
+    margin:5em 30em;
     display: none;
 }
 
 #tb-compras {
-    margin: 10em 30em;
+    margin: 5em 30em;
     display: none;
 }
 #tb-usuario {
-    margin: 10em 30em;
+    margin: 5em 30em;
     display: none;
 }
 #tb-produto {
-    margin: 10em 30em;
+    margin: 5em 30em;
     display: none;
 }
 
