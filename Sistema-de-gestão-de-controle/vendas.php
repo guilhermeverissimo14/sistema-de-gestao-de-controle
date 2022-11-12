@@ -96,3 +96,7 @@ class Vendas{
         return $this;
     }
 }
+interface vendasDao{
+    public function addVendas(Vendas $v);
+    public function pegaTodas();
+}
