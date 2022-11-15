@@ -184,7 +184,6 @@ require_once 'dao/DaoUsuarios.php';
         $lista = $produtoDao->getAll();
         ?>
 
-
         <!-- tabela de prudutos -->
         <div id="tb-produto">
             <table>

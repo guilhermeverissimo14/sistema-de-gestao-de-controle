@@ -53,7 +53,7 @@ class Produtos{
         return $this;
     }
 }
-interface produtoDAO {
+interface produtoDao {
     public function add(Produtos $p);
     public function edit($id);
     public function remove($id);
