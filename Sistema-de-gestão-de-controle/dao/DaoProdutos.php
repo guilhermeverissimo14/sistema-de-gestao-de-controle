@@ -32,11 +32,12 @@ class DaoProdutos implements produtoDAO{
             $data = $sql->fetchAll();
             
             foreach($data as $item){
-                $p = new Produtos();
-                $p->setId($item['id']);
-                $p->setNome($item['name']);
-                $p->setQuantidade($item['amount']);
-                $p->setValor($item['value']);
+                $u = new Produtos();
+                $u->setId($item['id']);
+                $u->setNome($item['name']);
+                $u->setQuantidade($item['amount']);
+                $u->setValor($item['value']);
+                $array[] = $u;
             } 
         }
         return $array;

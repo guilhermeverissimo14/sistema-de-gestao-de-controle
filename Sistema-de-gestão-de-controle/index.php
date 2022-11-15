@@ -4,6 +4,7 @@ require_once './conexao.php';
 require_once 'dao/DaoVendas.php';
 require_once 'dao/DaoCompras.php';
 require_once 'dao/DaoProdutos.php';
+require_once 'dao/DaoUsuarios.php';
 ?>
 <html lang="en">
 
@@ -139,6 +140,11 @@ require_once 'dao/DaoProdutos.php';
             </table>
         </div>
 
+        <?php
+        $usuarioDao = new DaoUsuarios($conexao);
+        $lista = $usuarioDao->getAll();
+        ?>
+
         <!-- tabela de usuarios -->
         <div id="tb-usuario">
             <table>
@@ -150,23 +156,26 @@ require_once 'dao/DaoProdutos.php';
                     <th>acesso</th>
                     <th colspan="2">Ações</th>
                 </tr>
-                <tr>
-                    <td>15</td>
-                    <td>guilherme14@gmail.com</td>
-                    <td>guilherme</td>
-                    <td>12345</td>
-                    <td>1</td>
-                    <td style="background-color: yellow;">
-                        <a>
-                            <img src="../Sistema-de-gestão-de-controle/assets/images/edit1.png" alt="icone de editar">
-                        </a>
-                    </td>
-                    <td style="background-color: red;">
-                        <a>
-                            <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
-                        </a>
-                    </td>
-                </tr>
+
+                <?php foreach ($lista as $item) : ?>
+                    <tr>
+                        <td><?= $item->getId() ?></td>
+                        <td><?= $item->getEmail() ?></td>
+                        <td><?= $item->getNome() ?></td>
+                        <td><?= $item->getSenha() ?></td>
+                        <td><?= $item->getAcesso() ?></td>
+                        <td style="background-color: yellow;">
+                            <a>
+                                <img src="../Sistema-de-gestão-de-controle/assets/images/edit1.png" alt="icone de editar">
+                            </a>
+                        </td>
+                        <td style="background-color: red;">
+                            <a>
+                                <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
             </table>
         </div>
 
@@ -174,6 +183,7 @@ require_once 'dao/DaoProdutos.php';
         $produtoDao = new DaoProdutos($conexao);
         $lista = $produtoDao->getAll();
         ?>
+
 
         <!-- tabela de prudutos -->
         <div id="tb-produto">
@@ -203,7 +213,6 @@ require_once 'dao/DaoProdutos.php';
                         </td>
                     </tr>
                 <?php endforeach; ?>
-
             </table>
         </div>
     </div>

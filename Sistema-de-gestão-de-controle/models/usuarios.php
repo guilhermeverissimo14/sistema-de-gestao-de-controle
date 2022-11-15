@@ -66,3 +66,10 @@ class Usuarios{
         return $this;
     }
 }
+interface usuarioDAO {
+    public function add(Usuarios $u);
+    public function edit($id);
+    public function remove($id);
+    public function get($id);
+    public function getAll();
+}
