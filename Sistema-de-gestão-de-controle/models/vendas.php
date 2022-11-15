@@ -8,7 +8,7 @@ class Vendas{
     private $produto;
     private $total;
     private $quantidade;
-
+    private $status;
 
     public function getId()
     {
@@ -95,10 +95,22 @@ class Vendas{
 
         return $this;
     }
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
 }
-interface vendasDao{
-    public function addVendas(Vendas $v);
-    public function listarVendas();
-    public function deletar(Vendas $v);
-    public function editar(Vendas $v);
+interface VendaDAO {
+    public function add(Vendas $v);
+    public function edit($id);
+    public function remove($id);
+    public function get($id);
+    public function getAll();
 }

@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+require_once './conexao.php';
+require_once 'dao/DaoVendas.php';
+require_once 'dao/DaoCompras.php';
+require_once 'dao/DaoProdutos.php';
+?>
 <html lang="en">
 
 <head>
@@ -53,6 +59,11 @@
         </div>
     </nav>
 
+    <?php
+    $vendaDao = new daoVendas($conexao);
+    $lista = $vendaDao->getAll();
+    ?>
+
     <!-- Tabela de vendas -->
     <div class="container">
         <div id="tb-vendas">
@@ -67,46 +78,35 @@
                     <th>status</th>
                     <th colspan="2">Ações</th>
                 </tr>
-                <tr>
-                    <td>10</td>
-                    <td>13/11/2022</td>
-                    <td>20</td>
-                    <td>calça</td>
-                    <td>Guilherme</td>
-                    <td>45,50</td>
-                    <td>Aprazo</td>
-                    <td style="background-color: yellow;">
-                        <a>
-                            <img src="../Sistema-de-gestão-de-controle/assets/images/edit1.png" alt="icone de editar">
-                        </a>
-                    </td>
-                    <td style="background-color: red;">
-                        <a>
-                            <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>50</td>
-                    <td>15/11/2022</td>
-                    <td>30</td>
-                    <td>short</td>
-                    <td>Vanderson</td>
-                    <td>150,50</td>
-                    <td>Avista</td>
-                    <td style="background-color: yellow;">
-                        <a>
-                            <img src="../Sistema-de-gestão-de-controle/assets/images/edit1.png" alt="icone de editar">
-                        </a>
-                    </td>
-                    <td style="background-color: red;">
-                        <a>
-                            <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
-                        </a>
-                    </td>
-                </tr>
+
+                <?php foreach ($lista as $item) : ?>
+                    <tr>
+                        <td><?= $item->getId() ?></td>
+                        <td><?= $item->getData() ?></td>
+                        <td><?= $item->getQuantidade() ?></td>
+                        <td><?= $item->getProduto() ?></td>
+                        <td><?= $item->getVendedor() ?></td>
+                        <td><?= $item->getTotal() ?></td>
+                        <td><?= $item->getStatus() ?></td>
+                        <td style="background-color: yellow;">
+                            <a>
+                                <img src="../Sistema-de-gestão-de-controle/assets/images/edit1.png" alt="icone de editar">
+                            </a>
+                        </td>
+                        <td style="background-color: red;">
+                            <a>
+                                <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
             </table>
         </div>
+
+        <?php
+        $CompraDAO = new DaoCompras($conexao);
+        $lista = $CompraDAO->getAll();
+        ?>
 
         <!-- tabela de compras -->
         <div id="tb-compras">
@@ -118,22 +118,24 @@
                     <th>Valor</th>
                     <th colspan="2">Ações</th>
                 </tr>
-                <tr>
-                    <td>10</td>
-                    <td>02</td>
-                    <td>caixa 01</td>
-                    <td>222,20</td>
-                    <td style="background-color: yellow;">
-                        <a>
-                            <img src="../Sistema-de-gestão-de-controle/assets/images/edit1.png" alt="icone de editar">
-                        </a>
-                    </td>
-                    <td style="background-color: red;">
-                        <a>
-                            <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
-                        </a>
-                    </td>
-                </tr>
+                <?php foreach ($lista as $item) : ?>
+                    <tr>
+                        <td><?= $item->getId() ?></td>
+                        <td><?= $item->getQuantidade() ?></td>
+                        <td><?= $item->getNome() ?></td>
+                        <td><?= $item->getValor() ?></td>
+                        <td style="background-color: yellow;">
+                            <a>
+                                <img src="../Sistema-de-gestão-de-controle/assets/images/edit1.png" alt="icone de editar">
+                            </a>
+                        </td>
+                        <td style="background-color: red;">
+                            <a>
+                                <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
             </table>
         </div>
 
@@ -168,6 +170,11 @@
             </table>
         </div>
 
+        <?php
+        $produtoDao = new DaoProdutos($conexao);
+        $lista = $produtoDao->getAll();
+        ?>
+
         <!-- tabela de prudutos -->
         <div id="tb-produto">
             <table>
@@ -178,22 +185,25 @@
                     <th>valor</th>
                     <th colspan="2">Ações</th>
                 </tr>
-                <tr>
-                    <td>55</td>
-                    <td>30</td>
-                    <td>caixa03</td>
-                    <td>350,01</td>
-                    <td style="background-color: yellow;">
-                        <a>
-                            <img src="../Sistema-de-gestão-de-controle/assets/images/edit1.png" alt="icone de editar">
-                        </a>
-                    </td>
-                    <td style="background-color: red;">
-                        <a>
-                            <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
-                        </a>
-                    </td>
-                </tr>
+                <?php foreach ($lista as $item) : ?>
+                    <tr>
+                        <td>55</td>
+                        <td>30</td>
+                        <td>caixa03</td>
+                        <td>350,01</td>
+                        <td style="background-color: yellow;">
+                            <a>
+                                <img src="../Sistema-de-gestão-de-controle/assets/images/edit1.png" alt="icone de editar">
+                            </a>
+                        </td>
+                        <td style="background-color: red;">
+                            <a>
+                                <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+
             </table>
         </div>
     </div>
