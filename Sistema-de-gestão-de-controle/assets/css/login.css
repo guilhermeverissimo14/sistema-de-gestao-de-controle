@@ -1,3 +1,6 @@
+*{
+   background-color:  #e9e9e9;
+}
 :root {
     --white: #e9e9e9;
     --gray: #333;
@@ -187,7 +190,7 @@ body {
 }
 
 .input {
-    border-radius: 3px;
+    border-radius: 10px;
     background-color: #fff;
     border: 1px solid #ccc;
     padding: 0.9rem 0.9rem;

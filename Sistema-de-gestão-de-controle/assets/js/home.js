@@ -20,9 +20,14 @@ function tabelaProdutos() {
     fecharTabelas();
     document.getElementById('tb-produto').style.display = 'block';
 }
+function tabelaRelatorios(){
+    fecharTabelas();
+    document.getElementById('tb-relatorios').style.display = 'block';
+}
 function fecharTabelas(){
     document.getElementById('tb-vendas').style.display = 'none';
     document.getElementById('tb-usuario').style.display = 'none';
     document.getElementById('tb-produto').style.display = 'none';
     document.getElementById('tb-compras').style.display = 'none';
+    document.getElementById('tb-relatorios').style.display = 'none';
 }

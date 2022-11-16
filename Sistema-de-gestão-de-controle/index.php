@@ -49,7 +49,7 @@ require_once 'dao/DaoUsuarios.php';
                 Usuarios
             </a>
 
-            <a href="#" class="itens">
+            <a href="#" onclick="tabelaRelatorios()" class="itens">
                 <img src="../Sistema-de-gestão-de-controle/assets/images/relatorio.png" alt="relatorios">
                 Relatorios
             </a>
@@ -212,6 +212,32 @@ require_once 'dao/DaoUsuarios.php';
                         </td>
                     </tr>
                 <?php endforeach; ?>
+            </table>
+        </div>
+        <div id="tb-relatorios">
+            <table>
+                <tr>
+                    <th>Quantidade</th>
+                    <th>Nome</th>
+                    <th>Valor</th>
+                    <th colspan="2">Ações</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="background-color: yellow;">
+                        <a>
+                            <img src="../Sistema-de-gestão-de-controle/assets/images/edit1.png" alt="icone de editar">
+                        </a>
+                    </td>
+                    <td style="background-color: red;">
+                        <a>
+                            <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
+                        </a>
+                    </td>
+                </tr>
             </table>
         </div>
     </div>

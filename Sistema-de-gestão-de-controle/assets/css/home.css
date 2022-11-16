@@ -22,7 +22,7 @@ header {
 
 h2 {
     color: #fff;
-    margin: 0px 200px;
+    margin: 0px 30em;
 }
 
 .btn-abrir {
@@ -92,6 +92,10 @@ nav a:hover {
     display: none;
 }
 #tb-produto {
+    margin: 5em 30em;
+    display: none;
+}
+#tb-relatorios{
     margin: 5em 30em;
     display: none;
 }
