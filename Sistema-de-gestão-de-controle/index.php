@@ -196,10 +196,10 @@ require_once 'dao/DaoUsuarios.php';
                 </tr>
                 <?php foreach ($lista as $item) : ?>
                     <tr>
-                        <td>55</td>
-                        <td>30</td>
-                        <td>caixa03</td>
-                        <td>350,01</td>
+                        <td><?= $item->getId() ?></td>
+                        <td><?= $item->getQuantidade() ?></td>
+                        <td><?= $item->getNome() ?></td>
+                        <td><?= $item->getValor() ?></td>
                         <td style="background-color: yellow;">
                             <a>
                                 <img src="../Sistema-de-gestão-de-controle/assets/images/edit1.png" alt="icone de editar">

@@ -37,6 +37,7 @@ class DaoCompras implements CompraDAO{
                 $c->setNome($item['name_product']);
                 $c->setQuantidade($item['amount']);
                 $c->setValor($item['value']);
+                $array [] = $c;
             } 
         }
         return $array;
