@@ -109,7 +109,7 @@ class Vendas{
 }
 interface VendaDAO {
     public function add(Vendas $v);
-    public function edit($id);
+    public function edit(Vendas $v);
     public function remove($id);
     public function get($id);
     public function getAll();

@@ -1,5 +1,5 @@
 <?php
-
+require 'conexao.php';
 require 'models/vendas.php';
 
 class daoVendas implements VendaDAO {
@@ -13,16 +13,24 @@ class daoVendas implements VendaDAO {
 
     }
 
-    public function edit($id){
-
+    public function edit(Vendas $v){
+        // $sql = $this->conexao->prepare("UPDATE sale SET data=:data");
+        // $sql-> bindValue(':data',$v->getData());
     }
 
     public function remove($id){
-
+        $sql = $this->conexao->prepare("DELETE FROM sale WHERE id = :id");
+        $sql->bindValue(':id',$id);
+        $sql->execute();     
     }
 
     public function get($id){
-
+        $data = [];
+        $sql = $this->conexao->query("SELECT * FROM sale WHERE id = $id");
+        if($sql->rowCount() > 0){
+            $data = $sql->fetch();
+        }
+        return $data;
     }
 
     public function getAll(){
@@ -45,7 +53,6 @@ class daoVendas implements VendaDAO {
                 $array[] = $u;
             } 
         }
-
         return $array;
     }
 }

@@ -90,12 +90,12 @@ require_once 'dao/DaoUsuarios.php';
                         <td><?= $item->getTotal() ?></td>
                         <td><?= $item->getStatus() ?></td>
                         <td style="background-color: yellow;">
-                            <a>
+                            <a href="editar.php?id=<?php echo $item -> getId () ?>">
                                 <img src="../Sistema-de-gestão-de-controle/assets/images/edit1.png" alt="icone de editar">
                             </a>
                         </td>
                         <td style="background-color: red;">
-                            <a>
+                            <a href="ExcluirVendas.php?id=<?php echo $item -> getId () ?>" >
                                 <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
                             </a>
                         </td>
