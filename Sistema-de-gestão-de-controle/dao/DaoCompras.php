@@ -17,7 +17,9 @@ class DaoCompras implements CompraDAO{
     }
 
     public function remove($id){
-
+        $sql = $this->conexao->prepare("DELETE FROM purchase WHERE id = :id");
+        $sql->bindValue(':id',$id);
+        $sql->execute();
     }
 
     public function get($id){

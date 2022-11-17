@@ -131,7 +131,7 @@ require_once 'dao/DaoUsuarios.php';
                             </a>
                         </td>
                         <td style="background-color: red;">
-                            <a>
+                            <a  href="ExcluirCompras.php?id=<?php echo $item -> getId () ?>">
                                 <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
                             </a>
                         </td>
@@ -170,7 +170,7 @@ require_once 'dao/DaoUsuarios.php';
                             </a>
                         </td>
                         <td style="background-color: red;">
-                            <a>
+                            <a  href="ExcluirUsuarios.php?id=<?php echo $item -> getId () ?>">
                                 <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
                             </a>
                         </td>
@@ -206,7 +206,7 @@ require_once 'dao/DaoUsuarios.php';
                             </a>
                         </td>
                         <td style="background-color: red;">
-                            <a>
+                            <a href="ExcluirProdutos.php?id=<?php echo $item -> getId () ?>">
                                 <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
                             </a>
                         </td>

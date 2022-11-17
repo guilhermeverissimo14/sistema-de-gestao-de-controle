@@ -14,7 +14,9 @@ class DaoUsuarios implements usuarioDao{
     }
 
     public function edit($id){
-
+        $sql = $this->conexao->prepare("DELETE FROM user WHERE id = :id");
+        $sql->bindValue(':id',$id);
+        $sql->execute();
     }
 
     public function remove($id){

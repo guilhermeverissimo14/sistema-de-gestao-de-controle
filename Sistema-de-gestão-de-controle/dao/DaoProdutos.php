@@ -18,7 +18,9 @@ class DaoProdutos implements produtoDao{
     }
 
     public function remove($id){
-
+        $sql = $this->conexao->prepare("DELETE FROM product WHERE id = :id");
+        $sql->bindValue(':id',$id);
+        $sql->execute();
     }
 
     public function get($id){
