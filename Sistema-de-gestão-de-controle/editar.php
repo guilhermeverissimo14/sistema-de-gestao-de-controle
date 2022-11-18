@@ -25,7 +25,7 @@ $venda = $vendaDao->get($id);
     </div>
     <div class="form-box" style="border: 1px solid;">
       <h2>Cadastro de Vendas</h2>
-      <form action="#">
+      <form action="editarAction.php" method="POST">
         <div class="input-group">
           <label for="nome"> Data da venda</label>
           <input type="date" value="<?= $venda['date'] ?>" placeholder="data" name="date" />
