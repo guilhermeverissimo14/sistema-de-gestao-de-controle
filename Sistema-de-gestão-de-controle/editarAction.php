@@ -1,4 +1,5 @@
 <?php
+
 require 'conexao.php';
 require './dao/DaoVendas.php';
 
@@ -12,13 +13,18 @@ $quantidade = filter_input(INPUT_POST, "quantidade");
 $vendedor = filter_input(INPUT_POST, "vendedor");
 $status = filter_input(INPUT_POST, "status");
 
-if ($date  && $total && $produto && $quantidade && $vendedor && $status) {
+if ($date  && $total && $produto && $quantidade && $vendedor && $status && $id) {
     $vendas = new Vendas();
-    $vendas->setVendedor('guilherme');
-    $DaoVenda->edit($vendas); 
+    $vendas->setId($id);
+    $vendas->setVendedor($vendedor);
+    $DaoVenda->edit($vendas);
+
+    
+
     header("location: index.php");
     exit;
 } else {
+    echo 'campos incompletos';
     header("location: editar.php");
     exit;
 }

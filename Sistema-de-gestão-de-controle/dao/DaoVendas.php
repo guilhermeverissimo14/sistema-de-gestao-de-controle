@@ -1,4 +1,9 @@
 <?php
+
+ini_set('display_errors',1);
+  ini_set('display_startup_erros',1);
+  error_reporting(E_ALL);
+
 require 'conexao.php';
 require 'models/vendas.php';
 
@@ -14,8 +19,15 @@ class daoVendas implements VendaDAO {
     }
 
     public function edit(Vendas $v){
-        // $sql = $this->conexao->prepare("UPDATE sale SET data=:data");
-        // $sql-> bindValue(':data',$v->getData());
+        
+        echo 'atualiza o id: '.$v->getId().' com o seller agora sendo '.$v->getVendedor();
+
+        $sql = $this->conexao->prepare("UPDATE sale SET seller = :seller WHERE id = :id");
+        $sql->bindValue(':id', $v->getId());
+        $sql->bindValue(':seller', $v->getVendedor());
+        $sql->execute();
+        
+        //$sql = $this->conexao->query("update sale set seller = 'testeeeeee' where id = 14");
     }
 
     public function remove($id){

@@ -1,4 +1,5 @@
 <?php
+
 require 'conexao.php';
 require './dao/DaoVendas.php';
 
@@ -25,7 +26,11 @@ $venda = $vendaDao->get($id);
     </div>
     <div class="form-box" style="border: 1px solid;">
       <h2>Cadastro de Vendas</h2>
+      
       <form action="editarAction.php" method="POST">
+
+        <input type="hidden" name="id" value="<?=$id;?>" />
+
         <div class="input-group">
           <label for="nome"> Data da venda</label>
           <input type="date" value="<?= $venda['date'] ?>" placeholder="data" name="date" />
@@ -48,7 +53,7 @@ $venda = $vendaDao->get($id);
         
         <div class="input-group">
           <label for="telefone">Quantidade</label>
-          <input type="number" value="<?= $venda['amount'] ?>" placeholder="Quantidade" name="Quantidade" />
+          <input type="number" value="<?= $venda['amount'] ?>" placeholder="Quantidade" name="quantidade" />
         </div>
 
         <div class="input-group">
