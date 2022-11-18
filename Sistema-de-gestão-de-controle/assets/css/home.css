@@ -17,17 +17,23 @@ header {
     padding: 1em;
     display: flex;
     flex-direction: row;
-    font-weight: bold
+    font-weight: bold;
+    text-align: center;
 }
 
 h2 {
     color: #fff;
-    margin: 0px 200px;
+    margin: 0;
+    width: 100%;
 }
 
 .btn-abrir {
     color: #fff;
     font-size: 25px;
+}
+
+.btn-fechar{
+    text-align: center;
 }
 
 nav {
@@ -42,11 +48,23 @@ nav {
     justify-content: center;
 }
 
+.opcaoMenu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 nav a {
     color: #fff;
     font-size: 1.5em;
     display: block;
     padding: 12px 10px 12px 32px;
+    padding: 0;
+}
+
+.imgBox{
+    text-align: center;
 }
 
 nav img {
