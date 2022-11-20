@@ -18,8 +18,9 @@ if ($date  && $total && $produto && $quantidade && $vendedor && $status && $id) 
     $vendas->setId($id);
     $vendas->setVendedor($vendedor);
     $DaoVenda->edit($vendas);
+    $vendas->setProduto($produto);
+    $DaoVenda->edit($vendas);
 
-    
 
     header("location: index.php");
     exit;
