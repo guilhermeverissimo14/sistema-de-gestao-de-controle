@@ -32,7 +32,6 @@ class daoVendas implements VendaDAO {
         $sql->bindValue(':total', $v->getTotal());
         $sql->execute();
         
-        //$sql = $this->conexao->query("update sale set seller = 'testeeeeee' where id = 14");
     }
 
     public function remove($id){
