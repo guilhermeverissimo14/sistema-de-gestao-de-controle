@@ -167,7 +167,7 @@ require_once 'dao/DaoUsuarios.php';
                         <td><?= $item->getSenha() ?></td>
                         <td><?= $item->getAcesso() ?></td>
                         <td style="background-color: yellow;">
-                            <a>
+                            <a href="editarUsuarios.php?id=<?php echo $item->getId() ?>">
                                 <img src="../Sistema-de-gestão-de-controle/assets/images/edit1.png" alt="icone de editar">
                             </a>
                         </td>
