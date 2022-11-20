@@ -13,8 +13,15 @@ class DaoProdutos implements produtoDao{
 
     }
 
-    public function edit($id){
+    public function edit(Produtos $p){ 
+        echo 'atualiza o id: '.$p->getId().' com o quantidade agora sendo '.$p->getQuantidade();
 
+        $sql = $this->conexao->prepare("UPDATE product SET amount = :amount, price = :price, name = :name  WHERE id = :id");
+        $sql->bindValue(':id', $p->getId());
+        $sql->bindValue(':amount', $p->getQuantidade());
+        $sql->bindValue(':name', $p->getNome());
+        $sql->bindValue(':price', $p->getValor());
+        $sql->execute();
     }
 
     public function remove($id){
@@ -24,7 +31,12 @@ class DaoProdutos implements produtoDao{
     }
 
     public function get($id){
-
+        $data = [];
+        $sql = $this->conexao->query("SELECT * FROM product WHERE id = $id");
+        if($sql->rowCount() > 0){
+            $data = $sql->fetch();
+        }
+        return $data;
     }
 
     public function getAll(){

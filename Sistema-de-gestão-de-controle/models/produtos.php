@@ -55,7 +55,7 @@ class Produtos{
 }
 interface produtoDao {
     public function add(Produtos $p);
-    public function edit($id);
+    public function edit(Produtos $p);
     public function remove($id);
     public function get($id);
     public function getAll();

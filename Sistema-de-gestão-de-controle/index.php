@@ -203,7 +203,7 @@ require_once 'dao/DaoUsuarios.php';
                         <td><?= $item->getNome() ?></td>
                         <td><?= $item->getValor() ?></td>
                         <td style="background-color: yellow;">
-                            <a>
+                            <a href="editarProdutos.php?id=<?php echo $item->getId() ?>">
                                 <img src="../Sistema-de-gestão-de-controle/assets/images/edit1.png" alt="icone de editar">
                             </a>
                         </td>
