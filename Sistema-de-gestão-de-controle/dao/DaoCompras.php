@@ -1,6 +1,7 @@
 <?php
 
 require 'models/compras.php';
+require 'conexao.php';
 
 class DaoCompras implements CompraDAO{
     private $conexao;
@@ -12,8 +13,13 @@ class DaoCompras implements CompraDAO{
 
     }
 
-    public function edit($id){
+    public function edit(Compras $c){
+        echo 'atualiza o id: '.$c->getId().' com o seller agora sendo '.$c->getQuantidade();
 
+        $sql = $this->conexao->prepare("UPDATE purchase SET amount = :amount  WHERE id = :id");
+        $sql->bindValue(':id', $c->getId());
+        $sql->bindValue(':amount', $c->getQuantidade());
+        $sql->execute();
     }
 
     public function remove($id){
@@ -23,7 +29,12 @@ class DaoCompras implements CompraDAO{
     }
 
     public function get($id){
-
+        $data = [];
+        $sql = $this->conexao->query("SELECT * FROM purchase WHERE id = $id");
+        if($sql->rowCount() > 0){
+            $data = $sql->fetch();
+        }
+        return $data;
     }
     public function getAll(){
         $array = [];

@@ -29,11 +29,11 @@ require_once 'dao/DaoUsuarios.php';
     <nav id="menu">
         <a class="btn-fechar" style="font-size: 50px;" href="#" onclick="fecharMenu()">&times;</a>
         <div class="nav-1">
-        
+
             <div class="imgBox">
                 <img src="../Sistema-de-gestão-de-controle/assets/images/logo.png" alt="logo">
             </div>
-            
+
             <div class="opcaoMenu">
                 <a href="#" onclick="tabelaVendas()" class="itens">
                     <img src="../Sistema-de-gestão-de-controle/assets/images/vendas.png" alt="vendas">
@@ -92,12 +92,12 @@ require_once 'dao/DaoUsuarios.php';
                         <td><?= $item->getTotal() ?></td>
                         <td><?= $item->getStatus() ?></td>
                         <td style="background-color: yellow;">
-                            <a href="editar.php?id=<?php echo $item -> getId () ?>">
+                            <a href="editarVendas.php?id=<?php echo $item->getId() ?>">
                                 <img src="../Sistema-de-gestão-de-controle/assets/images/edit1.png" alt="icone de editar">
                             </a>
                         </td>
                         <td style="background-color: red;">
-                            <a href="ExcluirVendas.php?id=<?php echo $item -> getId () ?>" >
+                            <a href="ExcluirVendas.php?id=<?php echo $item->getId() ?>">
                                 <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
                             </a>
                         </td>
@@ -128,12 +128,12 @@ require_once 'dao/DaoUsuarios.php';
                         <td><?= $item->getNome() ?></td>
                         <td><?= $item->getValor() ?></td>
                         <td style="background-color: yellow;">
-                            <a>
+                            <a href="editarCompras.php?id=<?php echo $item->getId() ?>">
                                 <img src="../Sistema-de-gestão-de-controle/assets/images/edit1.png" alt="icone de editar">
                             </a>
                         </td>
                         <td style="background-color: red;">
-                            <a  href="ExcluirCompras.php?id=<?php echo $item -> getId () ?>">
+                            <a href="ExcluirCompras.php?id=<?php echo $item->getId() ?>">
                                 <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
                             </a>
                         </td>
@@ -172,7 +172,7 @@ require_once 'dao/DaoUsuarios.php';
                             </a>
                         </td>
                         <td style="background-color: red;">
-                            <a  href="ExcluirUsuarios.php?id=<?php echo $item -> getId () ?>">
+                            <a href="ExcluirUsuarios.php?id=<?php echo $item->getId() ?>">
                                 <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
                             </a>
                         </td>
@@ -208,7 +208,7 @@ require_once 'dao/DaoUsuarios.php';
                             </a>
                         </td>
                         <td style="background-color: red;">
-                            <a href="ExcluirProdutos.php?id=<?php echo $item -> getId () ?>">
+                            <a href="ExcluirProdutos.php?id=<?php echo $item->getId() ?>">
                                 <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
                             </a>
                         </td>

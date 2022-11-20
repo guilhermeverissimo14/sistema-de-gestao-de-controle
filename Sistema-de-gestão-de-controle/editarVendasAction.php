@@ -33,6 +33,6 @@ if ($date  && $total && $produto && $quantidade && $vendedor && $status && $id) 
     exit;
 } else {
     echo 'campos incompletos';
-    header("location: editar.php");
+    header("location: editarVendas.php");
     exit;
 }
