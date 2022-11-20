@@ -15,11 +15,7 @@ body{
     padding: 20px;
     min-height: 100vh;
 }
-.w50{
-    width: 50%;
-    float: left;
-    padding-right: 15px;
-}
+
 .box{
     display: flex;
     width: 930px;
