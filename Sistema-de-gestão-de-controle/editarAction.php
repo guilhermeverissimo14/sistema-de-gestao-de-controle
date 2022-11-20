@@ -22,6 +22,12 @@ if ($date  && $total && $produto && $quantidade && $vendedor && $status && $id) 
     $DaoVenda->edit($vendas);
     $vendas->setQuantidade($quantidade);
     $DaoVenda->edit($vendas);
+    $vendas->setStatus($status);
+    $DaoVenda->edit($vendas);
+    $vendas->setData($date);
+    $DaoVenda->edit($vendas);
+    $vendas->setTotal($total);
+    $DaoVenda->edit($vendas);
 
     header("location: index.php");
     exit;
