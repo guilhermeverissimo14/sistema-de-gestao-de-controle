@@ -48,7 +48,20 @@ $venda = $vendaDao->get($id);
 
         <div class="input-group">
           <label>Nome do vendedor</label>
-          <input type="text" value="<?= $venda['seller'] ?>" placeholder="Nome Vendedor" name="vendedor" />
+          <select name="vendedor" required>
+            <option value="">Selecione um Vendedor</option>
+            <?php
+            $query = $conexao->query("SELECT id, seller FROM sale ORDER BY seller ASC");
+            $vendedores = $query->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($vendedores as $option) {
+              ?>
+              <option value="<?php echo $option['seller']?>">
+                <?php echo $option['seller']; ?>
+              </option>
+              <?php
+            }
+            ?>
+          </select>
         </div>
 
         <div class="input-group">
