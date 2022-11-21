@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+session_start();
 require_once './conexao.php';
 require_once 'dao/DaoVendas.php';
 require_once 'dao/DaoCompras.php';
@@ -218,5 +219,13 @@ require_once 'dao/DaoUsuarios.php';
         </div>
     </div>
 </body>
+<?php 
+if(isset($_SESSION["flag"])){ 
+    echo "<script> 
+     tabelaCompras();
+     abrirMenu();
+    </script>";
+}
 
+?>
 </html>

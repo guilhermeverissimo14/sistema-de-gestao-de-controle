@@ -14,7 +14,7 @@ class DaoCompras implements CompraDAO{
     }
 
     public function edit(Compras $c){
-        echo 'atualiza o id: '.$c->getId().' com o quantidade agora sendo '.$c->getQuantidade();
+        echo 'atualiza o id: '.$c->getId().' com o valor agora sendo '.$c->getValor();
 
         $sql = $this->conexao->prepare("UPDATE purchase SET amount = :amount, value = :value, name_product = :name_product  WHERE id = :id");
         $sql->bindValue(':id', $c->getId());
