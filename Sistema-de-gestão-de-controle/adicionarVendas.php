@@ -20,7 +20,7 @@ require "conexao.php";
     <div class="form-box" style="border: 1px solid;">
       <h2>Cadastro de Vendas</h2>
 
-      <form action="editarVendasAction.php" method="POST">
+      <form action="adicionarVendasAction.php" method="POST">
 
         <input type="hidden" name="id" value="<?= $id; ?>" />
 
