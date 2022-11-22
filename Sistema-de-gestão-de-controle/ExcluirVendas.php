@@ -11,6 +11,6 @@ $sql->bindValue(':id', $id);
 $sql->execute();
 
 //codigo para voltar para a pagina de index.php
-
+$_SESSION["flag"] = "vendas";
 header("location: index.php");
 exit;

@@ -16,11 +16,8 @@ if ( $email &&  $id && $nome && $senha && $acesso) {
     $usuarios = new Usuarios();
     $usuarios->setId($id);
     $usuarios->setEmail($email);
-    $Daousuario->edit($usuarios);
     $usuarios->setAcesso($acesso);
-    $Daousuario->edit($usuarios);
     $usuarios->setNome($nome);
-    $Daousuario->edit($usuarios);
     $usuarios->setSenha($senha);
     $Daousuario->edit($usuarios);
     header("location: index.php");

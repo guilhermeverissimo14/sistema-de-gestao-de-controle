@@ -15,9 +15,7 @@ if ( $quantidade &&  $id && $nome && $valor) {
     $compras = new Compras();
     $compras->setId($id);
     $compras->setQuantidade($quantidade);
-    $DaoCompra->edit($compras);
     $compras->setValor($valor);
-    $DaoCompra->edit($compras);
     $compras->setNome($nome);
     $DaoCompra->edit($compras);
     header("location: index.php");

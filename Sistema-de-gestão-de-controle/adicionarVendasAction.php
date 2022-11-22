@@ -22,7 +22,7 @@ if ($date  && $total && $produto && $quantidade && $vendedor && $status && $id) 
     $vendas->setStatus($status);
     $vendas->setData($date);
     $vendas->setTotal($total);
-    $DaoVenda->edit($vendas);
+    $DaoVenda->add($vendas);
 
     header("location: index.php");
     exit;

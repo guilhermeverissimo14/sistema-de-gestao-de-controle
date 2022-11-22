@@ -105,6 +105,7 @@ require_once 'dao/DaoUsuarios.php';
                     </tr>
                 <?php endforeach; ?>
             </table>
+            <a href="adicionarVendas.php" style="background-color: green;">Adicionar Vendas</a>
         </div>
 
         <?php
@@ -222,9 +223,11 @@ require_once 'dao/DaoUsuarios.php';
 <?php 
 if(isset($_SESSION["flag"])){ 
     echo "<script> 
-     tabelaCompras();
+     tabelaVendas();
      abrirMenu();
     </script>";
+}else{
+   
 }
 
 ?>

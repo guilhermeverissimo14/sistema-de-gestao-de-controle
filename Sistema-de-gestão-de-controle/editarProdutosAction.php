@@ -15,9 +15,7 @@ if ( $quantidade &&  $id && $nome && $valor) {
     $produtos = new Produtos();
     $produtos->setId($id);
     $produtos->setQuantidade($quantidade);
-    $Daoproduto->edit($produtos);
     $produtos->setValor($valor);
-    $Daoproduto->edit($produtos);
     $produtos->setNome($nome);
     $Daoproduto->edit($produtos);
     header("location: index.php");
