@@ -2,6 +2,7 @@
 
 require 'conexao.php';
 require './dao/DaoVendas.php';
+session_start();
 
 $DaoVenda = new DaoVendas($conexao);
 
@@ -13,6 +14,7 @@ $quantidade = filter_input(INPUT_POST, "quantidade");
 $vendedor = filter_input(INPUT_POST, "vendedor");
 $status = filter_input(INPUT_POST, "status");
 
+$_SESSION["flag"] = "venda";
 if ($date  && $total && $produto && $quantidade && $vendedor && $status && $id) {
     $vendas = new Vendas();
     $vendas->setId($id);
@@ -27,7 +29,6 @@ if ($date  && $total && $produto && $quantidade && $vendedor && $status && $id) 
     header("location: index.php");
     exit;
 } else {
-    echo 'campos incompletos';
     header("location: editarVendas.php");
     exit;
 }

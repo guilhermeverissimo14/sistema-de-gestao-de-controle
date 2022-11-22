@@ -10,8 +10,7 @@ class daoVendas implements VendaDAO {
     }
 
     public function add(Vendas $v){
-
-        $sql = $this->conexao->prepare("INSERT sale VALUES seller = :seller, product = :product, amount = :amount, status = :status, date =:date, total = :total");
+        $sql = $this->conexao->prepare("INSERT sale (seller, product, amount, status, date, total) VALUES (:seller, :product, :amount, :status, :date, :total)");
         $sql->bindValue(':seller', $v->getVendedor());
         $sql->bindValue(':product', $v->getProduto());
         $sql->bindValue(':amount', $v->getQuantidade());

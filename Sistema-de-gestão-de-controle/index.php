@@ -220,14 +220,28 @@ require_once 'dao/DaoUsuarios.php';
         </div>
     </div>
 </body>
+
 <?php 
-if(isset($_SESSION["flag"])){ 
+if($_SESSION["flag"] === 'venda'){ 
     echo "<script> 
-     tabelaVendas();
-     abrirMenu();
+    abrirMenu();
+    tabelaVendas();
     </script>";
-}else{
-   
+}else if($_SESSION["flag"] === 'compra'){
+    echo "<script> 
+    abrirMenu();
+    tabelaCompras();
+    </script>";
+}else if($_SESSION["flag"] === 'usuario'){
+    echo "<script> 
+    abrirMenu();
+    tabelaUsuarios();
+    </script>";
+}else if($_SESSION["flag"] === '´produto'){
+    echo "<script> 
+    abrirMenu();
+    tabelaProdutos();
+    </script>";
 }
 
 ?>

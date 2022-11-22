@@ -1,6 +1,7 @@
 <?php
 require 'conexao.php';
 require './dao/DaoVendas.php';
+session_start();
 
 $vendaDao = new daoVendas($conexao);
 
@@ -11,6 +12,6 @@ $sql->bindValue(':id', $id);
 $sql->execute();
 
 //codigo para voltar para a pagina de index.php
-$_SESSION["flag"] = "vendas";
+$_SESSION["flag"] = "venda";
 header("location: index.php");
 exit;

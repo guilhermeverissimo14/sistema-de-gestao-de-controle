@@ -1,5 +1,9 @@
 <?php
 require "conexao.php";
+
+$sql = $conexao->query('SELECT name FROM user');
+$vendedoresLista = $sql->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,8 +26,6 @@ require "conexao.php";
 
       <form action="adicionarVendasAction.php" method="POST">
 
-        <input type="hidden" name="id" value="<?= $id; ?>" />
-
         <div class="input-group">
           <label> Data da venda</label>
           <input type="date" placeholder="data" name="date" />
@@ -44,12 +46,10 @@ require "conexao.php";
           <select name="vendedor" required>
             <option value="">Selecione um Vendedor</option>
             <?php
-            $query = $conexao->query("SELECT id, seller FROM sale ORDER BY seller ASC");
-            $vendedores = $query->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($vendedores as $option) {
+            foreach ($vendedoresLista as $option) {
               ?>
-              <option value="<?php echo $option['seller']?>">
-                <?php echo $option['seller']; ?>
+              <option value="<?php echo $option['name']?>">
+                <?php echo $option['name']; ?>
               </option>
               <?php
             }
