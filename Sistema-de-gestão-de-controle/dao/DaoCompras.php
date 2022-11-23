@@ -10,7 +10,11 @@ class DaoCompras implements CompraDAO{
         $this->conexao = $driver;
     }
     public function add(Compras $c){
-
+        $sql = $this->conexao->prepare("INSERT purchase (amount, value, name_product) VALUES (:amount, :value, :name_product)");
+        $sql->bindValue(':amount', $c->getQuantidade());
+        $sql->bindValue(':name_product', $c->getNome());
+        $sql->bindValue(':value', $c->getValor());
+        $sql->execute();
     }
 
     public function edit(Compras $c){

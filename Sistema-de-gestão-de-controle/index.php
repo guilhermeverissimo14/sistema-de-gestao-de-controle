@@ -142,6 +142,7 @@ require_once 'dao/DaoUsuarios.php';
                     </tr>
                 <?php endforeach; ?>
             </table>
+            <a href="adicionarCompras.php" style="background-color: green;">Adicionar Compras</a>
         </div>
 
         <?php
@@ -181,6 +182,7 @@ require_once 'dao/DaoUsuarios.php';
                     </tr>
                 <?php endforeach; ?>
             </table>
+            <a href="adicionarUsuarios.php" style="background-color: green;">Adicionar Usuarios</a>
         </div>
 
         <?php
@@ -217,6 +219,7 @@ require_once 'dao/DaoUsuarios.php';
                     </tr>
                 <?php endforeach; ?>
             </table>
+            <a href="adicionarProdutos.php" style="background-color: green;">Adicionar Produtos</a>
         </div>
     </div>
 </body>
