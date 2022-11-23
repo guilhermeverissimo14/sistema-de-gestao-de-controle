@@ -10,7 +10,12 @@ class DaoUsuarios implements usuarioDao{
     }
 
     public function add(Usuarios $u){
-        
+        $sql = $this->conexao->prepare("INSERT user (email, password, name, acess) VALUES (:email, :password, :name, :acess)");
+        $sql->bindValue(':email', $u->getEmail());
+        $sql->bindValue(':name', $u->getNome());
+        $sql->bindValue(':password', $u->getSenha());
+        $sql->bindValue(':acess', $u->getAcesso());
+        $sql->execute();
     }
 
     public function edit(Usuarios $u){
