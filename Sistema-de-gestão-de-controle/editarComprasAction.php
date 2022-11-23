@@ -1,7 +1,7 @@
 <?php
-
 require 'conexao.php';
 require './dao/DaoCompras.php';
+session_start();
 
 $DaoCompra = new DaoCompras($conexao);
 
@@ -10,6 +10,8 @@ $quantidade = filter_input(INPUT_POST, "quantidade");
 $nome = filter_input(INPUT_POST, "nome");
 $valor = filter_input(INPUT_POST, "valor");
 
+//codigo para a tabela nao recarregar apos alguma edição
+$_SESSION["flag"] = "compra";
 
 if ( $quantidade &&  $id && $nome && $valor) {
     $compras = new Compras();

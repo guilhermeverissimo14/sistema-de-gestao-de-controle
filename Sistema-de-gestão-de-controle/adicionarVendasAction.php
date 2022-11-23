@@ -13,7 +13,7 @@ $quantidade = filter_input(INPUT_POST, "quantidade");
 $vendedor = filter_input(INPUT_POST, "vendedor");
 $status = filter_input(INPUT_POST, "status");
 
-
+//codigo para a tabela nao recarregar apos alguma edição
 $_SESSION["flag"] = "venda";
 
 if ($date  && $total && $produto && $quantidade && $vendedor && $status) {

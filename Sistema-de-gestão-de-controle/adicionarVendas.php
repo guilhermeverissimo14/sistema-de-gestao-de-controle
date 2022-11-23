@@ -1,9 +1,5 @@
 <?php
 require "conexao.php";
-
-$sql = $conexao->query('SELECT name FROM user');
-$vendedoresLista = $sql->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,6 +42,8 @@ $vendedoresLista = $sql->fetchAll(PDO::FETCH_ASSOC);
           <select name="vendedor" required>
             <option value="">Selecione um Vendedor</option>
             <?php
+            $sql = $conexao->query('SELECT name FROM user');
+            $vendedoresLista = $sql->fetchAll(PDO::FETCH_ASSOC);
             foreach ($vendedoresLista as $option) {
               ?>
               <option value="<?php echo $option['name']?>">

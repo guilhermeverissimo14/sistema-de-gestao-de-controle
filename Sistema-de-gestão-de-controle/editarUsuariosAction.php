@@ -2,7 +2,7 @@
 
 require 'conexao.php';
 require './dao/DaoUsuarios.php';
-
+session_start();
 $Daousuario = new DaoUsuarios($conexao);
 
 $id = filter_input(INPUT_POST, "id");
@@ -11,7 +11,8 @@ $nome = filter_input(INPUT_POST, "nome");
 $senha = filter_input(INPUT_POST, "senha");
 $acesso = filter_input(INPUT_POST, "acesso");
 
-
+//codigo para a tabela nao recarregar apos alguma edição
+$_SESSION["flag"] = "usuario";
 if ( $email &&  $id && $nome && $senha && $acesso) {
     $usuarios = new Usuarios();
     $usuarios->setId($id);
