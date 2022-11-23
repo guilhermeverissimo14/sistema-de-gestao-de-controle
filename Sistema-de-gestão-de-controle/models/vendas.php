@@ -15,11 +15,8 @@ class Vendas{
         return $this->id;
     }
 
-    public function setId($id)
-    {
+    public function setId($id){
         $this->id = $id;
-
-        return $this;
     }
 
     public function getId_venda()
@@ -109,7 +106,7 @@ class Vendas{
 }
 interface VendaDAO {
     public function add(Vendas $v);
-    public function edit($id);
+    public function edit(Vendas $v);
     public function remove($id);
     public function get($id);
     public function getAll();

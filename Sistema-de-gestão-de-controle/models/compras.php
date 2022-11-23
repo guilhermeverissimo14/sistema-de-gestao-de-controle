@@ -55,7 +55,7 @@ class Compras{
 }
 interface CompraDAO {
     public function add(Compras $c);
-    public function edit($id);
+    public function edit(Compras $c);
     public function remove($id);
     public function get($id);
     public function getAll();

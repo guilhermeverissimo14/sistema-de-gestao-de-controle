@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+session_start();
 require_once './conexao.php';
 require_once 'dao/DaoVendas.php';
 require_once 'dao/DaoCompras.php';
@@ -21,42 +22,44 @@ require_once 'dao/DaoUsuarios.php';
 
 <body>
     <header>
-        <div>
-            <a href="#" class="btn-abrir" onclick="abrirMenu()"> &#9776;</a>
-        </div>
-        <div>
-            <h2>Sistema de gestão de controle</h2>
-        </div>
+        <a href="#" class="btn-abrir" onclick="abrirMenu()">&#9776;</a>
+        <h2>Sistema de gestão de controle</h2>
     </header>
 
     <!-- Menu lateral -->
     <nav id="menu">
-        <a style="font-size: 50px;" href="#" onclick="fecharMenu()">&times;</a>
+        <a class="btn-fechar" style="font-size: 50px;" href="#" onclick="fecharMenu()">&times;</a>
         <div class="nav-1">
-            <img src="../Sistema-de-gestão-de-controle/assets/images/logo.png" alt="logo">
-            <a href="#" onclick="tabelaVendas()" class="itens">
-                <img src="../Sistema-de-gestão-de-controle/assets/images/vendas.png" alt="vendas">
-                Vendas
-            </a>
 
-            <a href="#" onclick="tabelaCompras()" class="itens">
-                <img src="../Sistema-de-gestão-de-controle/assets/images/compras.png" alt="compras">
-                Compras
-            </a>
+            <div class="imgBox">
+                <img src="../Sistema-de-gestão-de-controle/assets/images/logo.png" alt="logo">
+            </div>
 
-            <a href="#" onclick="tabelaUsuarios()" class="itens">
-                <img src="../Sistema-de-gestão-de-controle/assets/images/usuarios.png" alt="usuarios">
-                Usuarios
-            </a>
+            <div class="opcaoMenu">
+                <a href="#" onclick="tabelaVendas()" class="itens">
+                    <img src="../Sistema-de-gestão-de-controle/assets/images/vendas.png" alt="vendas">
+                    Vendas
+                </a>
 
-            <a href="#" onclick="tabelaRelatorios()" class="itens">
-                <img src="../Sistema-de-gestão-de-controle/assets/images/relatorio.png" alt="relatorios">
-                Relatorios
-            </a>
-            <a href="#" onclick="tabelaProdutos()" class="itens">
-                <img src="../Sistema-de-gestão-de-controle/assets/images/produtos.png" alt="produtos">
-                Produtos
-            </a>
+                <a href="#" onclick="tabelaCompras()" class="itens">
+                    <img src="../Sistema-de-gestão-de-controle/assets/images/compras.png" alt="compras">
+                    Compras
+                </a>
+
+                <a href="#" onclick="tabelaUsuarios()" class="itens">
+                    <img src="../Sistema-de-gestão-de-controle/assets/images/usuarios.png" alt="usuarios">
+                    Usuarios
+                </a>
+
+                <a href="#" class="itens">
+                    <img src="../Sistema-de-gestão-de-controle/assets/images/relatorio.png" alt="relatorios">
+                    Relatorios
+                </a>
+                <a href="#" onclick="tabelaProdutos()" class="itens">
+                    <img src="../Sistema-de-gestão-de-controle/assets/images/produtos.png" alt="produtos">
+                    Produtos
+                </a>
+            </div>
         </div>
     </nav>
 
@@ -90,18 +93,19 @@ require_once 'dao/DaoUsuarios.php';
                         <td><?= $item->getTotal() ?></td>
                         <td><?= $item->getStatus() ?></td>
                         <td style="background-color: yellow;">
-                            <a>
+                            <a href="editarVendas.php?id=<?php echo $item->getId() ?>">
                                 <img src="../Sistema-de-gestão-de-controle/assets/images/edit1.png" alt="icone de editar">
                             </a>
                         </td>
                         <td style="background-color: red;">
-                            <a>
+                            <a href="ExcluirVendas.php?id=<?php echo $item->getId() ?>">
                                 <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
                             </a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
             </table>
+            <a class="adicionar" href="adicionarVendas.php" style="background-color: green;">Adicionar Vendas</a>
         </div>
 
         <?php
@@ -126,18 +130,19 @@ require_once 'dao/DaoUsuarios.php';
                         <td><?= $item->getNome() ?></td>
                         <td><?= $item->getValor() ?></td>
                         <td style="background-color: yellow;">
-                            <a>
+                            <a href="editarCompras.php?id=<?php echo $item->getId() ?>">
                                 <img src="../Sistema-de-gestão-de-controle/assets/images/edit1.png" alt="icone de editar">
                             </a>
                         </td>
                         <td style="background-color: red;">
-                            <a>
+                            <a href="ExcluirCompras.php?id=<?php echo $item->getId() ?>">
                                 <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
                             </a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
             </table>
+            <a class="adicionar" href="adicionarCompras.php" style="background-color: green;">Adicionar Compras</a>
         </div>
 
         <?php
@@ -165,18 +170,19 @@ require_once 'dao/DaoUsuarios.php';
                         <td><?= $item->getSenha() ?></td>
                         <td><?= $item->getAcesso() ?></td>
                         <td style="background-color: yellow;">
-                            <a>
+                            <a href="editarUsuarios.php?id=<?php echo $item->getId() ?>">
                                 <img src="../Sistema-de-gestão-de-controle/assets/images/edit1.png" alt="icone de editar">
                             </a>
                         </td>
                         <td style="background-color: red;">
-                            <a>
+                            <a href="ExcluirUsuarios.php?id=<?php echo $item->getId() ?>">
                                 <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
                             </a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
             </table>
+            <a class="adicionar" href="adicionarUsuarios.php" style="background-color: green;">Adicionar Usuarios</a>
         </div>
 
         <?php
@@ -196,23 +202,24 @@ require_once 'dao/DaoUsuarios.php';
                 </tr>
                 <?php foreach ($lista as $item) : ?>
                     <tr>
-                        <td>55</td>
-                        <td>30</td>
-                        <td>caixa03</td>
-                        <td>350,01</td>
+                        <td><?= $item->getId() ?></td>
+                        <td><?= $item->getQuantidade() ?></td>
+                        <td><?= $item->getNome() ?></td>
+                        <td><?= $item->getValor() ?></td>
                         <td style="background-color: yellow;">
-                            <a>
+                            <a href="editarProdutos.php?id=<?php echo $item->getId() ?>">
                                 <img src="../Sistema-de-gestão-de-controle/assets/images/edit1.png" alt="icone de editar">
                             </a>
                         </td>
                         <td style="background-color: red;">
-                            <a>
+                            <a href="ExcluirProdutos.php?id=<?php echo $item->getId() ?>">
                                 <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
                             </a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
             </table>
+            <a class="adicionar" href="adicionarProdutos.php" style="background-color: green;">Adicionar Produtos</a>
         </div>
         <div id="tb-relatorios">
             <table>
@@ -243,4 +250,33 @@ require_once 'dao/DaoUsuarios.php';
     </div>
 </body>
 
+<?php 
+if($_SESSION["flag"] === 'venda'){ 
+    echo "<script> 
+    abrirMenu();
+    tabelaVendas();
+    </script>";
+}else if($_SESSION["flag"] === 'compra'){
+    echo "<script> 
+    abrirMenu();
+    tabelaCompras();
+    </script>";
+}else if($_SESSION["flag"] === 'usuario'){
+    echo "<script> 
+    abrirMenu();
+    tabelaUsuarios();
+    </script>";
+}else if($_SESSION["flag"] === '´produto'){
+    echo "<script> 
+    abrirMenu();
+    tabelaProdutos();
+    </script>";
+}else{
+    echo 
+    "<script>
+    fecharTabelas()
+    </script>";
+}
+
+?>
 </html>

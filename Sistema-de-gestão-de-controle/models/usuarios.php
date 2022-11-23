@@ -68,7 +68,7 @@ class Usuarios{
 }
 interface usuarioDAO {
     public function add(Usuarios $u);
-    public function edit($id);
+    public function edit(Usuarios $u);
     public function remove($id);
     public function get($id);
     public function getAll();
