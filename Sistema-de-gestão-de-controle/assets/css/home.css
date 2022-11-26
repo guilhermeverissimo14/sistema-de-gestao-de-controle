@@ -149,3 +149,20 @@ table tr:nth-child(odd) {
 table tr:nth-child(even) {
     background-color: #fff;
 }
+
+/* botao de adicionar vendas */
+.adicionar-vendas{
+    font-size:0.8em;
+    display: block;
+    width: 8vw;
+    height: 2vh;
+    padding: 10px 5px;
+    background-color: #000;
+    color: #FFF;
+    border-radius: 5px 5px 0px 0px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    font-family: Arial;
+    margin-left: 36.2em;
+}
