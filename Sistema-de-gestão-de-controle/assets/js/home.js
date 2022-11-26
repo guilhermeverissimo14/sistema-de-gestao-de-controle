@@ -13,17 +13,14 @@ function tabelaVendas() {
 function tabelaCompras() {
     fecharTabelas();
     document.getElementById('tb-compras').style.display = 'block';
-    document.getElementById('compras').style.display = 'block';
 }
 function tabelaUsuarios() {
     fecharTabelas();
     document.getElementById('tb-usuario').style.display = 'block';
-    document.getElementById('usuarios').style.display = 'block';
 }
 function tabelaProdutos() {
     fecharTabelas();
     document.getElementById('tb-produto').style.display = 'block';
-    document.getElementById('produtos').style.display = 'block';
 }
 function tabelaRelatorios(){
     fecharTabelas();

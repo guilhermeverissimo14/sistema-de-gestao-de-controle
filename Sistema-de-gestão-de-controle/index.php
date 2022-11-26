@@ -259,33 +259,31 @@ require_once 'dao/DaoUsuarios.php';
 </body>
 
 <?php
-// if($_SESSION["flag"] === 'venda'){ 
-//     echo "<script> 
-//     abrirMenu();
-//     tabelaVendas();
-//     </script>";
-// }else if($_SESSION["flag"] === 'compra'){
-//     echo "<script> 
-//     abrirMenu();
-//     tabelaCompras();
-//     </script>";
-// }else if($_SESSION["flag"] === 'usuario'){
-//     echo "<script> 
-//     abrirMenu();
-//     tabelaUsuarios();
-//     </script>";
-// }else if($_SESSION["flag"] === '´produto'){
-//     echo "<script> 
-//     abrirMenu();
-//     tabelaProdutos();
-//     </script>";
-// }else{
-//     echo 
-//     "<script>
-//     fecharTabelas()
-//     </script>";
-// }
-
+if(isset($_SESSION['flag'])){
+  
+    if($_SESSION["flag"] === 'venda'){ 
+        echo "<script> 
+        abrirMenu();
+        tabelaVendas();
+        </script>";
+    }else if($_SESSION["flag"] === 'compra'){
+        echo "<script> 
+        abrirMenu();
+        tabelaCompras();
+        </script>";
+    }else if($_SESSION["flag"] === 'usuario'){
+        echo "<script> 
+        abrirMenu();
+        tabelaUsuarios();
+        </script>";
+    }else if($_SESSION["flag"] === 'produto'){
+        echo "<script> 
+        abrirMenu();
+        tabelaProdutos();
+        </script>";
+    }
+    $_SESSION['flag'] = false;
+}
 ?>
 
 </html>
