@@ -6,6 +6,13 @@ require_once 'dao/DaoVendas.php';
 require_once 'dao/DaoCompras.php';
 require_once 'dao/DaoProdutos.php';
 require_once 'dao/DaoUsuarios.php';
+
+if(isset($_SESSION['token'])){
+
+}else{
+    header("location:login.php");
+    exit;
+}
 ?>
 <html lang="en">
 
