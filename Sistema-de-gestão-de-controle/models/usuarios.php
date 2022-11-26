@@ -3,8 +3,21 @@ class Usuarios{
     private $id;
     private $email;
     private $nome;
+    private $token;
     private $acesso;
     private $senha;
+
+    public function getToken()
+    {
+        return $this->token;
+    }
+ 
+    public function setToken($id)
+    {
+        $this->token = $id;
+
+        return $this;
+    }
 
     public function getId()
     {
@@ -72,4 +85,5 @@ interface usuarioDAO {
     public function remove($id);
     public function get($id);
     public function getAll();
+    public function autenticacao($token);
 }

@@ -10,9 +10,10 @@ class DaoUsuarios implements usuarioDao{
     }
 
     public function add(Usuarios $u){
-        $sql = $this->conexao->prepare("INSERT user (email, password, name, acess) VALUES (:email, :password, :name, :acess)");
+        $sql = $this->conexao->prepare("INSERT user (email, password, name, acess, token) VALUES (:email, :password, :name, :acess, :token)");
         $sql->bindValue(':email', $u->getEmail());
         $sql->bindValue(':name', $u->getNome());
+        $sql->bindValue(':token', $u->getToken());
         $sql->bindValue(':password', $u->getSenha());
         $sql->bindValue(':acess', $u->getAcesso());
         $sql->execute();
@@ -30,8 +31,21 @@ class DaoUsuarios implements usuarioDao{
         $sql->execute();
     }
 
-    public function remove($id){
+    public function autenticacao($token){
+        $data = [];
+        $sql = $this->conexao->prepare("SELECT * FROM user WHERE token = :token");
+        $sql->bindValue(':token', $token);
+        $sql->execute();
 
+        if($sql->rowCount() > 0){
+            $data = $sql->fetch();
+        }
+        
+        return $data;
+    }
+
+    public function remove($id){
+        
     }
 
     public function get($id){

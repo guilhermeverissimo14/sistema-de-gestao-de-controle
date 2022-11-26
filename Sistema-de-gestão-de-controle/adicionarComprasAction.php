@@ -19,6 +19,9 @@ if ( $quantidade && $nome && $valor) {
     $compras->setValor($valor);
     $compras->setNome($nome);
     $DaoCompra->add($compras);
+
+    //Adicina em produto
+
     header("location: index.php");
     exit;
 } else {

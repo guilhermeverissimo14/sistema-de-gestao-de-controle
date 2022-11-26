@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 session_start();
 require_once './conexao.php';
@@ -7,13 +6,17 @@ require_once 'dao/DaoCompras.php';
 require_once 'dao/DaoProdutos.php';
 require_once 'dao/DaoUsuarios.php';
 
-if(isset($_SESSION['token'])){
-
-}else{
+if(empty($_SESSION['token'])){
     header("location:login.php");
     exit;
 }
+
+$usuarioDao = new DaoUsuarios($conexao);
+$usuarioLogado = $usuarioDao->autenticacao($_SESSION['token']);
+
 ?>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -30,7 +33,8 @@ if(isset($_SESSION['token'])){
 <body>
     <header>
         <a href="#" class="btn-abrir" onclick="abrirMenu()">&#9776;</a>
-        <h2>Sistema de gestão de controle</h2>
+        <h2>Sistema de gestão de controle [<?=$usuarioLogado['acess']?>]</h2>
+        <a href="sair.php" onClick="return confirm('Você tem certeza?');">Sair</a>
     </header>
 
     <!-- Menu lateral -->

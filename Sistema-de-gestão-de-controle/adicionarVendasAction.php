@@ -27,6 +27,8 @@ if ($date  && $total && $produto && $quantidade && $vendedor && $status) {
 
     $DaoVenda->add($vendas);
 
+    //Remove em produto
+
     header("location: index.php");
     exit;
 } else {
