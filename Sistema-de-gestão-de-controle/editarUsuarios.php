@@ -19,10 +19,10 @@ $usuario = $usuarioDao->get($id);
 </head>
 <body>
 <div class="box">
-    <div class="img-box" style="border: 1px solid ;">
+    <div class="img-box" style="border: 1px solid transparent;">
       <img src="./assets/images/logo3.png">
     </div>
-    <div class="form-box" style="border: 1px solid;">
+    <div class="form-box" style="border: 1px solid transparent;">
       <h2>Cadastro de Usuarios</h2>
 
       <form action="editarUsuariosAction.php" method="POST">

@@ -68,9 +68,9 @@ require_once 'dao/DaoUsuarios.php';
     $lista = $vendaDao->getAll();
     ?>
 
-    <!-- Tabela de vendas -->
     <div class="container">
         <div id="tb-vendas">
+        <h1>Tabela de vendas</h1>
             <table>
                 <tr>
                     <th>id</th>
@@ -115,6 +115,7 @@ require_once 'dao/DaoUsuarios.php';
 
         <!-- tabela de compras -->
         <div id="tb-compras">
+        <h1>Tabela de compras</h1>
             <table>
                 <tr>
                     <th>Id</th>
@@ -152,6 +153,7 @@ require_once 'dao/DaoUsuarios.php';
 
         <!-- tabela de usuarios -->
         <div id="tb-usuario">
+        <h1>Tabela de Usuários</h1>
             <table>
                 <tr>
                     <th>Id</th>
@@ -192,6 +194,7 @@ require_once 'dao/DaoUsuarios.php';
 
         <!-- tabela de prudutos -->
         <div id="tb-produto">
+        <h1>Tabela de produtos</h1>
             <table>
                 <tr>
                     <th>Id</th>
@@ -250,33 +253,34 @@ require_once 'dao/DaoUsuarios.php';
     </div>
 </body>
 
-<?php 
-if($_SESSION["flag"] === 'venda'){ 
-    echo "<script> 
-    abrirMenu();
-    tabelaVendas();
-    </script>";
-}else if($_SESSION["flag"] === 'compra'){
-    echo "<script> 
-    abrirMenu();
-    tabelaCompras();
-    </script>";
-}else if($_SESSION["flag"] === 'usuario'){
-    echo "<script> 
-    abrirMenu();
-    tabelaUsuarios();
-    </script>";
-}else if($_SESSION["flag"] === '´produto'){
-    echo "<script> 
-    abrirMenu();
-    tabelaProdutos();
-    </script>";
-}else{
-    echo 
-    "<script>
-    fecharTabelas()
-    </script>";
-}
+<?php
+// if($_SESSION["flag"] === 'venda'){ 
+//     echo "<script> 
+//     abrirMenu();
+//     tabelaVendas();
+//     </script>";
+// }else if($_SESSION["flag"] === 'compra'){
+//     echo "<script> 
+//     abrirMenu();
+//     tabelaCompras();
+//     </script>";
+// }else if($_SESSION["flag"] === 'usuario'){
+//     echo "<script> 
+//     abrirMenu();
+//     tabelaUsuarios();
+//     </script>";
+// }else if($_SESSION["flag"] === '´produto'){
+//     echo "<script> 
+//     abrirMenu();
+//     tabelaProdutos();
+//     </script>";
+// }else{
+//     echo 
+//     "<script>
+//     fecharTabelas()
+//     </script>";
+// }
 
 ?>
+
 </html>
