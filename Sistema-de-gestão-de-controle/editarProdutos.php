@@ -23,7 +23,7 @@ $produto = $produtoDao->get($id);
       <img src="./assets/images/logo3.png">
     </div>
     <div class="form-box" style="border: 1px solid transparent;">
-      <h2>Cadastro de Produtos</h2>
+      <h2> Editar Produtos</h2>
 
       <form action="editarProdutosAction.php" method="POST">
 

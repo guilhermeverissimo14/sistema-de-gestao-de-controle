@@ -24,7 +24,7 @@ $compra = $compraDao->get($id);
       <img src="./assets/images/logo3.png">
     </div>
     <div class="form-box" style="border: 1px solid transparent;">
-      <h2>Cadastro de Compras</h2>
+      <h2>Editar Compras</h2>
 
       <form action="editarComprasAction.php" method="POST">
 

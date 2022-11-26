@@ -25,7 +25,7 @@ $venda = $vendaDao->get($id);
       <img src="./assets/images/logo3.png">
     </div>
     <div class="form-box" style="border: 1px solid transparent;">
-      <h2>Cadastro de Vendas</h2>
+      <h2>Editar Vendas</h2>
 
       <form action="editarVendasAction.php" method="POST">
 
@@ -44,11 +44,6 @@ $venda = $vendaDao->get($id);
         <div class="input-group">
           <label>Nome do produto</label>
           <input type="text" value="<?= $venda['product'] ?>" placeholder="Nome do produto" name="produto" />
-        </div>
-
-        <div class="input-group">
-          <label>Nome do vendedor</label>
-          <input type="text" value="<?= $venda['seller'] ?>" placeholder="Nome do vendedor" name="vendedor" />
         </div>
 
         <div class="input-group">
