@@ -32,4 +32,5 @@ function fecharTabelas(){
     document.getElementById('tb-produto').style.display = 'none';
     document.getElementById('tb-compras').style.display = 'none';
     document.getElementById('tb-relatorios').style.display = 'none';
+    document.getElementById('img-logo').style.display = 'none';
 }

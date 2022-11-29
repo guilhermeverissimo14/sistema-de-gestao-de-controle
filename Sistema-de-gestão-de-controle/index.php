@@ -6,14 +6,15 @@ require_once 'dao/DaoCompras.php';
 require_once 'dao/DaoProdutos.php';
 require_once 'dao/DaoUsuarios.php';
 
-if(empty($_SESSION['token'])){
-    header("location:login.php");
-    exit;
-}
+// if(empty($_SESSION['token'])){
+//     header("location:login.php");
+//     exit;
+// }
 
-$usuarioDao = new DaoUsuarios($conexao);
-$usuarioLogado = $usuarioDao->autenticacao($_SESSION['token']);
+// $usuarioDao = new DaoUsuarios($conexao);
+// $usuarioLogado = $usuarioDao->autenticacao($_SESSION['token']);
 
+// 
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +25,7 @@ $usuarioLogado = $usuarioDao->autenticacao($_SESSION['token']);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <title>Document</title>
 </head>
 <script src="./assets/js/home.js">
@@ -33,9 +35,21 @@ $usuarioLogado = $usuarioDao->autenticacao($_SESSION['token']);
 <body>
     <header>
         <a href="#" class="btn-abrir" onclick="abrirMenu()">&#9776;</a>
-        <h2>Sistema de gestão de controle [<?=$usuarioLogado['acess']?>]</h2>
-        <a href="sair.php" onClick="return confirm('Você tem certeza?');">Sair</a>
+        <a href="sair.php" onClick="return confirm('Você tem certeza?');">Sair
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-backspace" viewBox="0 0 16 16">
+                <path d="M5.83 5.146a.5.5 0 0 0 0 .708L7.975 8l-2.147 2.146a.5.5 0 0 0 .707.708l2.147-2.147 2.146 2.147a.5.5 0 0 0 .707-.708L9.39 8l2.146-2.146a.5.5 0 0 0-.707-.708L8.683 7.293 6.536 5.146a.5.5 0 0 0-.707 0z" />
+                <path d="M13.683 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1h7.08zm-7.08 1a1 1 0 0 0-.76.35L1 8l4.844 5.65a1 1 0 0 0 .759.35h7.08a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-7.08z" />
+            </svg>
+
+        </a>
+        <h2>Sistema de gestão de controle </h2>
+        <!-- //$usuarioLogado['acess'] -->
+
     </header>
+    <!-- logo da loja -->
+    <div id="img-logo" class="img">
+        <img src="../Sistema-de-gestão-de-controle/assets/images/logo4.png" alt="logo">
+    </div>
 
     <!-- Menu lateral -->
     <nav id="menu">
@@ -106,14 +120,14 @@ $usuarioLogado = $usuarioDao->autenticacao($_SESSION['token']);
                         <td><?= $item->getTotal() ?></td>
                         <td><?= $item->getStatus() ?></td>
                         <td>
-                            <a href="editarVendas.php?id=<?php echo $item->getId() ?>">
+                            <a style="background-color:yellow;" href="editarVendas.php?id=<?php echo $item->getId() ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-pencil" viewBox="0 0 16 16">
                                     <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
                                 </svg>
                             </a>
                         </td>
-                        <td style="background-color: red;">
-                            <a href="ExcluirVendas.php?id=<?php echo $item->getId() ?>">
+                        <td>
+                            <a style="background-color:red;" href="ExcluirVendas.php?id=<?php echo $item->getId() ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-trash3-fill" viewBox="0 0 16 16">
                                     <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
                                 </svg>
@@ -147,14 +161,18 @@ $usuarioLogado = $usuarioDao->autenticacao($_SESSION['token']);
                         <td><?= $item->getQuantidade() ?></td>
                         <td><?= $item->getNome() ?></td>
                         <td><?= $item->getValor() ?></td>
-                        <td style="background-color: yellow;">
-                            <a href="editarCompras.php?id=<?php echo $item->getId() ?>">
-                                <img src="../Sistema-de-gestão-de-controle/assets/images/edit1.png" alt="icone de editar">
+                        <td>
+                            <a style="background-color:yellow;" href="editarCompras.php?id=<?php echo $item->getId() ?>">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-pencil" viewBox="0 0 16 16">
+                                    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+                                </svg>
                             </a>
                         </td>
-                        <td style="background-color: red;">
-                            <a href="ExcluirCompras.php?id=<?php echo $item->getId() ?>">
-                                <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
+                        <td>
+                            <a style="background-color:red ;" href="ExcluirCompras.php?id=<?php echo $item->getId() ?>">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                    <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
+                                </svg>
                             </a>
                         </td>
                     </tr>
@@ -188,14 +206,18 @@ $usuarioLogado = $usuarioDao->autenticacao($_SESSION['token']);
                         <td><?= $item->getNome() ?></td>
                         <td><?= $item->getSenha() ?></td>
                         <td><?= $item->getAcesso() ?></td>
-                        <td style="background-color: yellow;">
-                            <a href="editarUsuarios.php?id=<?php echo $item->getId() ?>">
-                                <img src="../Sistema-de-gestão-de-controle/assets/images/edit1.png" alt="icone de editar">
+                        <td>
+                            <a style="background-color:yellow;" href="editarUsuarios.php?id=<?php echo $item->getId() ?>">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-pencil" viewBox="0 0 16 16">
+                                    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+                                </svg>
                             </a>
                         </td>
-                        <td style="background-color: red;">
-                            <a href="ExcluirUsuarios.php?id=<?php echo $item->getId() ?>">
-                                <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
+                        <td>
+                            <a style="background-color:red ;" href="ExcluirUsuarios.php?id=<?php echo $item->getId() ?>">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                    <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
+                                </svg>
                             </a>
                         </td>
                     </tr>
@@ -226,14 +248,18 @@ $usuarioLogado = $usuarioDao->autenticacao($_SESSION['token']);
                         <td><?= $item->getQuantidade() ?></td>
                         <td><?= $item->getNome() ?></td>
                         <td><?= $item->getValor() ?></td>
-                        <td style="background-color: yellow;">
-                            <a href="editarProdutos.php?id=<?php echo $item->getId() ?>">
-                                <img src="../Sistema-de-gestão-de-controle/assets/images/edit1.png" alt="icone de editar">
+                        <td>
+                            <a style="background-color:yellow ;" href="editarProdutos.php?id=<?php echo $item->getId() ?>">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-pencil" viewBox="0 0 16 16">
+                                    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+                                </svg>
                             </a>
                         </td>
-                        <td style="background-color: red;">
-                            <a href="ExcluirProdutos.php?id=<?php echo $item->getId() ?>">
-                                <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
+                        <td>
+                            <a style="background-color:red ;" href="ExcluirProdutos.php?id=<?php echo $item->getId() ?>">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                    <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
+                                </svg>
                             </a>
                         </td>
                     </tr>
@@ -253,14 +279,18 @@ $usuarioLogado = $usuarioDao->autenticacao($_SESSION['token']);
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td style="background-color: yellow;">
+                    <td>
                         <a>
-                            <img src="../Sistema-de-gestão-de-controle/assets/images/edit1.png" alt="icone de editar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-pencil" viewBox="0 0 16 16">
+                                <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+                            </svg>
                         </a>
                     </td>
-                    <td style="background-color: red;">
+                    <td>
                         <a>
-                            <img src="../Sistema-de-gestão-de-controle/assets/images/delete1.png" alt="icone de editar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
+                            </svg>
                         </a>
                     </td>
                 </tr>
@@ -270,24 +300,24 @@ $usuarioLogado = $usuarioDao->autenticacao($_SESSION['token']);
 </body>
 
 <?php
-if(isset($_SESSION['flag'])){
-  
-    if($_SESSION["flag"] === 'venda'){ 
+if (isset($_SESSION['flag'])) {
+
+    if ($_SESSION["flag"] === 'venda') {
         echo "<script> 
         abrirMenu();
         tabelaVendas();
         </script>";
-    }else if($_SESSION["flag"] === 'compra'){
+    } else if ($_SESSION["flag"] === 'compra') {
         echo "<script> 
         abrirMenu();
         tabelaCompras();
         </script>";
-    }else if($_SESSION["flag"] === 'usuario'){
+    } else if ($_SESSION["flag"] === 'usuario') {
         echo "<script> 
         abrirMenu();
         tabelaUsuarios();
         </script>";
-    }else if($_SESSION["flag"] === 'produto'){
+    } else if ($_SESSION["flag"] === 'produto') {
         echo "<script> 
         abrirMenu();
         tabelaProdutos();

@@ -5,7 +5,7 @@ ini_set('display_startup_erros',1);
 error_reporting(E_ALL);
 
 try {
-    $conexao = new PDO("mysql:dbname=stock_management;host=localhost","root","mysql");
+    $conexao = new PDO("mysql:dbname=stock_management;host=localhost","root","");
 }catch(PDOException $e){
     echo 'Deu ruim '.$e->getMessage();
 }
