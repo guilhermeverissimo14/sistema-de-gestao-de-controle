@@ -11,6 +11,22 @@ require "conexao.php";
   <title>Document</title>
   <link rel="stylesheet" href="./assets/css/formulario.css">
 </head>
+
+<!-- Mascara para dinheiro -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+<script src="https://plentz.github.io/jquery-maskmoney/javascripts/jquery.maskMoney.min.js" type="text/javascript"></script>
+
+<script>
+  jQuery(function() {
+
+    jQuery("#valor").maskMoney({
+      thousands: '.',
+      decimal: '.'
+    })
+
+  });
+</script>
+
 <body>
   <div class="box">
     <div class="img-box" style="border: 1px solid transparent;">
@@ -28,7 +44,7 @@ require "conexao.php";
 
         <div class="input-group">
           <label>Valor Total</label>
-          <input type="text" placeholder="Digite o valor total" name="total" />
+          <input id="valor" type="text" placeholder="Digite o valor total" name="total" />
         </div>
 
         <div class="input-group">
