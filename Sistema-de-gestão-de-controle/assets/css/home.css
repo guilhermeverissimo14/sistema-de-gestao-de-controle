@@ -131,17 +131,20 @@ nav a:hover {
 }
 
 /* Estilização das tabelas */
+
 table,
 tr,
 th,
 td {
     text-align: center;
     border-collapse: collapse;
+    border: 0.1px dotted rgb(205, 188, 188);
+    white-space: nowrap;
 }
 
 th,
 td {
-    padding: 5px 10px;
+    padding: 5px 20px;
 }
 
 th {
@@ -157,19 +160,22 @@ table tr:nth-child(even) {
     background-color: #fff;
 }
 
-/* botao de adicionar vendas */
-.adicionar-vendas{
+/* botao de adicionar vendas, compras, usuarios, produtos */
+.adicionar{
     font-size:0.8em;
     display: block;
     width: 8vw;
     height: 2vh;
     padding: 10px 5px;
-    background-color: #000;
+    background-color: #008997;
     color: #FFF;
     border-radius: 5px 5px 0px 0px;
     text-decoration: none;
     text-align: center;
     font-weight: bold;
     font-family: Arial;
-    margin-left: 36.2em;
+}
+a:hover {
+    color: #2790B0;
+    background-color: #fff;
 }
