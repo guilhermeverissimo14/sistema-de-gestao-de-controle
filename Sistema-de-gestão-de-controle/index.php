@@ -308,7 +308,6 @@ $usuarioLogado = $usuarioDao->autenticacao($_SESSION['token']);
 
 <?php
 if (isset($_SESSION['flag'])) {
-    echo 'teste'.$_SESSION['flag'];
     if ($_SESSION["flag"] === 'venda') {
         echo "<script> 
         abrirMenu();
