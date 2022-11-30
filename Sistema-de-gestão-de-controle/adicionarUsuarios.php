@@ -1,11 +1,6 @@
 <?php
 session_start();
 
-if(!empty($_SESSION['token'])){
-  header("location:index.php");
-  exit;
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

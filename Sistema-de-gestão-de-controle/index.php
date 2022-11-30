@@ -6,15 +6,14 @@ require_once 'dao/DaoCompras.php';
 require_once 'dao/DaoProdutos.php';
 require_once 'dao/DaoUsuarios.php';
 
-// if(empty($_SESSION['token'])){
-//     header("location:login.php");
-//     exit;
-// }
+if(empty($_SESSION['token'])){
+    header("location:login.php");
+    exit;
+}
 
-// $usuarioDao = new DaoUsuarios($conexao);
-// $usuarioLogado = $usuarioDao->autenticacao($_SESSION['token']);
+$usuarioDao = new DaoUsuarios($conexao);
+$usuarioLogado = $usuarioDao->autenticacao($_SESSION['token']);
 
-// 
 ?>
 
 <!DOCTYPE html>
@@ -28,9 +27,6 @@ require_once 'dao/DaoUsuarios.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <title>Document</title>
 </head>
-<script src="./assets/js/home.js">
-
-</script>
 
 <body>
     <header>
@@ -46,6 +42,7 @@ require_once 'dao/DaoUsuarios.php';
         <!-- //$usuarioLogado['acess'] -->
 
     </header>
+    
     <!-- logo da loja -->
     <div id="img-logo" class="img">
         <img src="../Sistema-de-gestão-de-controle/assets/images/logo4.png" alt="logo">
@@ -66,21 +63,21 @@ require_once 'dao/DaoUsuarios.php';
                     Vendas
                 </a>
 
-                <a href="#" onclick="tabelaCompras()" class="itens">
+                <a href="#" onclick="tabelaCompras()" class="itens bloquear">
                     <img src="../Sistema-de-gestão-de-controle/assets/images/compras.png" alt="compras">
                     Compras
                 </a>
 
-                <a href="#" onclick="tabelaUsuarios()" class="itens">
+                <a href="#" onclick="tabelaUsuarios()" class="itens bloquear">
                     <img src="../Sistema-de-gestão-de-controle/assets/images/usuarios.png" alt="usuarios">
                     Usuarios
                 </a>
 
-                <a href="#" class="itens">
+                <a href="#" class="itens bloquear">
                     <img src="../Sistema-de-gestão-de-controle/assets/images/relatorio.png" alt="relatorios">
                     Relatorios
                 </a>
-                <a href="#" onclick="tabelaProdutos()" class="itens">
+                <a href="#" onclick="tabelaProdutos()" class="itens bloquear">
                     <img src="../Sistema-de-gestão-de-controle/assets/images/produtos.png" alt="produtos">
                     Produtos
                 </a>
@@ -326,5 +323,12 @@ if (isset($_SESSION['flag'])) {
     $_SESSION['flag'] = false;
 }
 ?>
+<script>
+    let acesso = '<?php echo $usuarioLogado["acess"]; ?>';
+</script>
+
+<script src="./assets/js/home.js">
+
+</script>
 
 </html>
