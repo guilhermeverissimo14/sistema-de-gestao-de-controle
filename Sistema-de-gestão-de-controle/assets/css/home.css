@@ -167,7 +167,7 @@ table tr:nth-child(even) {
     width: 8vw;
     height: 2vh;
     padding: 10px 5px;
-    background-color: #008997;
+    background-color: blue;
     color: #FFF;
     border-radius: 5px 5px 0px 0px;
     text-decoration: none;
