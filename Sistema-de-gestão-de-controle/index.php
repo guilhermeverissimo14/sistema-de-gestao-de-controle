@@ -28,6 +28,14 @@ $usuarioLogado = $usuarioDao->autenticacao($_SESSION['token']);
     <title>Document</title>
 </head>
 
+<!-- para concretizar o nível de acesso -->
+<script>
+    let acesso = '<?php echo $usuarioLogado["acess"]; ?>';
+</script>
+
+<script src="./assets/js/home.js">
+
+</script>
 <body>
     <header>
         <a href="#" class="btn-abrir" onclick="abrirMenu()">&#9776;</a>
@@ -325,12 +333,4 @@ if (isset($_SESSION['flag'])) {
     $_SESSION['flag'] = false;
 }
 ?>
-<script>
-    let acesso = '<?php echo $usuarioLogado["acess"]; ?>';
-</script>
-
-<script src="./assets/js/home.js">
-
-</script>
-
 </html>
