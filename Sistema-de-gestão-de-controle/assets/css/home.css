@@ -34,7 +34,7 @@ header {
 }
 h2 {
     color: #fff;
-    margin: 0px 30em;
+    margin: 0px 40em;
     margin: 0;
     width: 100%;
 }
@@ -109,24 +109,24 @@ nav a:hover {
 }
 
 #tb-vendas {
-    margin:5em 30em;
+    margin:7em 20em;
     display: none;
 }
 
 #tb-compras {
-    margin: 5em 30em;
+    margin: 7em 30em;
     display: none;
 }
 #tb-usuario {
-    margin: 5em 30em;
+    margin: 7em 30em;
     display: none;
 }
 #tb-produto {
-    margin: 5em 30em;
+    margin: 7em 30em;
     display: none;
 }
 #tb-relatorios{
-    margin: 5em 30em;
+    margin: 7em 30em;
     display: none;
 }
 
