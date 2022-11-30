@@ -53,6 +53,11 @@ require "conexao.php";
         </div>
 
         <div class="input-group">
+          <label>código do produto</label>
+          <input type="text" placeholder="codigo do produto" name="codigoP" />
+        </div>
+
+        <div class="input-group">
           <label>Nome do vendedor</label>
           <select name="vendedor" required>
             <option value="">Selecione um Vendedor</option>

@@ -2,13 +2,13 @@
 
 class Vendas{
     private $id;
-    private $id_venda;
     private $data;
     private $vendedor;
     private $produto;
     private $total;
     private $quantidade;
     private $status;
+    private $codigo;
 
     public function getId()
     {
@@ -17,19 +17,6 @@ class Vendas{
 
     public function setId($id){
         $this->id = $id;
-    }
-
-    public function getId_venda()
-    {
-        return $this->id_venda;
-    }
-
-   
-    public function setId_venda($id_venda)
-    {
-        $this->id_venda = $id_venda;
-
-        return $this;
     }
 
     public function getData()
@@ -103,6 +90,18 @@ class Vendas{
 
         return $this;
     }
+    
+    public function getCodigo()
+    {
+        return $this->codigo;
+    }
+
+    public function setCodigo($codigo)
+    {
+        $this->codigo = $codigo;
+
+        return $this;
+    }
 }
 interface VendaDAO {
     public function add(Vendas $v);
@@ -110,4 +109,5 @@ interface VendaDAO {
     public function remove($id);
     public function get($id);
     public function getAll();
+
 }

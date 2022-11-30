@@ -101,6 +101,7 @@ $usuarioLogado = $usuarioDao->autenticacao($_SESSION['token']);
                     <th>data</th>
                     <th>quantidade</th>
                     <th>Produto</th>
+                    <th>Código produto</th>
                     <th>vendedor</th>
                     <th>total</th>
                     <th>status</th>
@@ -113,6 +114,7 @@ $usuarioLogado = $usuarioDao->autenticacao($_SESSION['token']);
                         <td><?= $item->getData() ?></td>
                         <td><?= $item->getQuantidade() ?></td>
                         <td><?= $item->getProduto() ?></td>
+                        <td><?= $item->getCodigo() ?></td>
                         <td><?= $item->getVendedor() ?></td>
                         <td><?= $item->getTotal() ?></td>
                         <td><?= $item->getStatus() ?></td>
@@ -298,7 +300,7 @@ $usuarioLogado = $usuarioDao->autenticacao($_SESSION['token']);
 
 <?php
 if (isset($_SESSION['flag'])) {
-
+    echo 'teste'.$_SESSION['flag'];
     if ($_SESSION["flag"] === 'venda') {
         echo "<script> 
         abrirMenu();
