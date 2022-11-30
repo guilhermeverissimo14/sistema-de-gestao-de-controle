@@ -11,7 +11,7 @@ function tabelaVendas() {
 
 function tabelaCompras() {
     if(acesso >= 2){
-        alert('Você não tem permissão, obs: somente o gerente pode acessar essa página!');
+        alert('Você não tem permissão!! obs: somente o gerente pode acessar essa página!');
         return false;
     }
     fecharTabelas();
@@ -19,7 +19,7 @@ function tabelaCompras() {
 }
 function tabelaUsuarios() {
     if(acesso >= 2){
-        alert('Você não tem permissão, obs: somente o gerente pode acessar essa página!');
+        alert('Você não tem permissão!! obs: somente o gerente pode acessar essa página!');
         return false;
     }
     fecharTabelas();
@@ -27,7 +27,7 @@ function tabelaUsuarios() {
 }
 function tabelaProdutos() {
     if(acesso >= 2){
-        alert('Você não tem permissão, obs: somente o gerente pode acessar essa página!');
+        alert('Você não tem permissão!! obs: somente o gerente pode acessar essa página!');
         return false;
     }
     fecharTabelas();
@@ -35,7 +35,7 @@ function tabelaProdutos() {
 }
 function tabelaRelatorios(){
     if(acesso >= 2){
-        alert('Você não tem permissão, obs: somente o gerente pode acessar essa página!');
+        alert('Você não tem permissão!! obs: somente o gerente pode acessar essa página!');
         return false;
     }
     fecharTabelas();
