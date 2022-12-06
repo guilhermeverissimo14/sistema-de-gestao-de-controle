@@ -27,11 +27,11 @@ class daoVendas implements VendaDAO {
 
         $sql = $this->conexao->prepare("UPDATE sale SET product = :product, amount = :amount, status = :status, date =:date, total = :total  WHERE id = :id");
         $sql->bindValue(':id', $v->getId());
-        $sql->bindValue(':product', $v->getProduto());
-        $sql->bindValue(':amount', $v->getQuantidade());
-        $sql->bindValue(':status', $v->getStatus());
-        $sql->bindValue(':date', $v->getData());
-        $sql->bindValue(':total', $v->getTotal());
+        if($v->getProduto()) $sql->bindValue(':product', $v->getProduto());
+        if($v->getQuantidade()) $sql->bindValue(':amount', $v->getQuantidade());
+        if($v->getStatus()) $sql->bindValue(':status', $v->getStatus());
+        if($v->getData()) $sql->bindValue(':date', $v->getData());
+        if($v->getTotal()) $sql->bindValue(':total', $v->getTotal());
         $sql->execute();
         
     }

@@ -26,10 +26,10 @@ class DaoProdutos implements produtoDao
         echo 'atualiza o id: ' . $p->getId() . ' com o quantidade agora sendo ' . $p->getQuantidade();
 
         $sql = $this->conexao->prepare("UPDATE product SET amount = :amount, price = :price, name = :name  WHERE id = :id");
-        $sql->bindValue(':id', $p->getId());
-        $sql->bindValue(':amount', $p->getQuantidade());
-        $sql->bindValue(':name', $p->getNome());
-        $sql->bindValue(':price', $p->getValor());
+        if($p->getId()) $sql->bindValue(':id', $p->getId());
+        if($p->getQuantidade()) $sql->bindValue(':amount', $p->getQuantidade());
+        if($p->getNome()) $sql->bindValue(':name', $p->getNome());
+        if($p->getValor()) $sql->bindValue(':price', $p->getValor());
         $sql->execute();
     }
 

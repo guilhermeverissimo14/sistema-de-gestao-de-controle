@@ -21,10 +21,10 @@ class DaoCompras implements CompraDAO{
         echo 'atualiza o id: '.$c->getId().' com o valor agora sendo '.$c->getValor();
 
         $sql = $this->conexao->prepare("UPDATE purchase SET amount = :amount, value = :value, name_product = :name_product  WHERE id = :id");
-        $sql->bindValue(':id', $c->getId());
-        $sql->bindValue(':amount', $c->getQuantidade());
-        $sql->bindValue(':name_product', $c->getNome());
-        $sql->bindValue(':value', $c->getValor());
+        if($c->getId()) $sql->bindValue(':id', $c->getId());
+        if($c->getQuantidade()) $sql->bindValue(':amount', $c->getQuantidade());
+        if($c->getNome()) $sql->bindValue(':name_product', $c->getNome());
+        if($c->getValor()) $sql->bindValue(':value', $c->getValor());
         $sql->execute();
     }
 

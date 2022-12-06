@@ -24,10 +24,11 @@ class DaoUsuarios implements usuarioDao{
 
         $sql = $this->conexao->prepare("UPDATE user SET email = :email, password = :password, name = :name, acess = :acess  WHERE id = :id");
         $sql->bindValue(':id', $u->getId());
-        $sql->bindValue(':email', $u->getEmail());
-        $sql->bindValue(':name', $u->getNome());
-        $sql->bindValue(':password', $u->getSenha());
-        $sql->bindValue(':acess', $u->getAcesso());
+        
+        if($u->getEmail()) $sql->bindValue(':email', $u->getEmail());
+        if($u->getNome()) $sql->bindValue(':name', $u->getNome());
+        if($u->getSenha()) $sql->bindValue(':password', $u->getSenha());
+        if($u->getAcesso()) $sql->bindValue(':acess', $u->getAcesso());
         $sql->execute();
     }
 
