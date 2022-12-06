@@ -1,12 +1,14 @@
 <?php
 session_start();
 
+// Recebe mensagem de erro no login
 $flash = '';
 if(isset($_SESSION["flash"])){
   $flash = $_SESSION["flash"];
   $_SESSION["flash"] = '';
 }
 
+// bloqueia para usuarios logados ou seja não voltar para tela de login
 if(!empty($_SESSION['token'])){
   header("location:index.php");
   exit;

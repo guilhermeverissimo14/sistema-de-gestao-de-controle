@@ -10,13 +10,14 @@ class daoVendas implements VendaDAO {
     }
 
     public function add(Vendas $v){
-        $sql = $this->conexao->prepare("INSERT sale (seller, product, amount, status, date, total) VALUES (:seller, :product, :amount, :status, :date, :total)");
+        $sql = $this->conexao->prepare("INSERT sale (seller, product, amount, status, date, total, id_produto) VALUES (:seller, :product, :amount, :status, :date, :total, :id_produto)");
         $sql->bindValue(':seller', $v->getVendedor());
         $sql->bindValue(':product', $v->getProduto());
         $sql->bindValue(':amount', $v->getQuantidade());
         $sql->bindValue(':status', $v->getStatus());
         $sql->bindValue(':date', $v->getData());
         $sql->bindValue(':total', $v->getTotal());
+        $sql->bindValue(':id_produto', $v->getCodigo());
         $sql->execute();
         
     }
@@ -25,13 +26,13 @@ class daoVendas implements VendaDAO {
         
         echo 'atualiza o id: '.$v->getId().' com o seller agora sendo '.$v->getVendedor();
 
-        $sql = $this->conexao->prepare("UPDATE sale SET product = :product, amount = :amount, status = :status, date =:date, total = :total  WHERE id = :id");
+        $sql = $this->conexao->prepare("UPDATE sale SET id_produto = :id_produto, product = :product, amount = :amount, status = :status, date =:date, total = :total  WHERE id = :id");
         $sql->bindValue(':id', $v->getId());
-        if($v->getProduto()) $sql->bindValue(':product', $v->getProduto());
-        if($v->getQuantidade()) $sql->bindValue(':amount', $v->getQuantidade());
-        if($v->getStatus()) $sql->bindValue(':status', $v->getStatus());
-        if($v->getData()) $sql->bindValue(':date', $v->getData());
-        if($v->getTotal()) $sql->bindValue(':total', $v->getTotal());
+        $sql->bindValue(':product', $v->getProduto());
+        $sql->bindValue(':amount', $v->getQuantidade());
+        $sql->bindValue(':status', $v->getStatus());
+        $sql->bindValue(':date', $v->getData());
+        $sql->bindValue(':total', $v->getTotal());
         $sql->execute();
         
     }
@@ -68,6 +69,7 @@ class daoVendas implements VendaDAO {
                 $u->setVendedor($item['seller']);
                 $u->setTotal($item['total']);
                 $u->setStatus($item['status']);
+                $u->setCodigo($item['id_produto']);
                 $array[] = $u;
             } 
         }

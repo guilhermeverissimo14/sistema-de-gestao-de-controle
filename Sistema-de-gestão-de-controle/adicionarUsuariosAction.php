@@ -21,6 +21,7 @@ $acesso = filter_input(INPUT_POST, "acesso");
 $_SESSION["flag"] = "usuario";
 if ( $email && $nome && $senha && $acesso) {
 
+    //gerar token automaticamente
     $token = md5(time().rand(0,9999).rand(0,9999));
 
     $usuarios = new Usuarios();
