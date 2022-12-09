@@ -23,10 +23,10 @@ if ($date  && $total && $produto && $quantidade && $status && $id) {
     $vendas->setData($date);
     $vendas->setTotal($total);
     $DaoVenda->edit($vendas);
-
     header("location: index.php");
     exit;
 } else {
+    echo 'a';
     header("location: editarVendas.php");
     exit;
 }

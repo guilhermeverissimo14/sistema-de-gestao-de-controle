@@ -7,8 +7,9 @@ require_once 'dao/DaoProdutos.php';
 require_once 'dao/DaoUsuarios.php';
 
 if (empty($_SESSION['token'])) {
-    header("location:login.php");
-    exit;
+    //header("location:login.php");
+    //exit;
+    echo "testeeeeeeeeeeeee: tem login";
 }
 
 $usuarioDao = new DaoUsuarios($conexao);

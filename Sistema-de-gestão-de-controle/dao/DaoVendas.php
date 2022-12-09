@@ -23,16 +23,14 @@ class daoVendas implements VendaDAO {
     }
 
     public function edit(Vendas $v){
-        
-        echo 'atualiza o id: '.$v->getId().' com o seller agora sendo '.$v->getVendedor();
 
-        $sql = $this->conexao->prepare("UPDATE sale SET id_produto = :id_produto, product = :product, amount = :amount, status = :status, date =:date, total = :total  WHERE id = :id");
+        $sql = $this->conexao->prepare("UPDATE sale SET date = :date, amount = :amount, total = :total, product = :product, status = :status WHERE id = :id");
         $sql->bindValue(':id', $v->getId());
-        $sql->bindValue(':product', $v->getProduto());
-        $sql->bindValue(':amount', $v->getQuantidade());
-        $sql->bindValue(':status', $v->getStatus());
         $sql->bindValue(':date', $v->getData());
+        $sql->bindValue(':amount', $v->getQuantidade());
         $sql->bindValue(':total', $v->getTotal());
+        $sql->bindValue(':product', $v->getProduto());
+        $sql->bindValue(':status', $v->getStatus());
         $sql->execute();
         
     }
