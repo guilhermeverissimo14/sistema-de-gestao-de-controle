@@ -35,6 +35,19 @@ class daoVendas implements VendaDAO {
         
     }
 
+    public function getRelatorio(){
+        
+        $sql = $this->conexao->query("SELECT seller, count(seller) as qtd, sum(total) as total FROM sale group by seller");
+
+        $data = $sql->fetchAll();
+
+        /*echo '<pre>';
+        print_r($data);
+        echo '</pre>';*/
+
+        return $data;
+    }
+
     public function remove($id){
         $sql = $this->conexao->prepare("DELETE FROM sale WHERE id = :id");
         $sql->bindValue(':id',$id);
