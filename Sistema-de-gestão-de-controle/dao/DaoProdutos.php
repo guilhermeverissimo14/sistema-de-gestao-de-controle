@@ -23,7 +23,7 @@ class DaoProdutos implements produtoDao
 
     public function edit(Produtos $p){
         echo 'atualiza o id: ' . $p->getId() . ' com o quantidade agora sendo ' . $p->getQuantidade();
-
+        // if se a pessoa nao enviar um dos campos nao vai estragar a consulta inteira.
         $sql = $this->conexao->prepare("UPDATE product SET amount = :amount, price = :price, name = :name  WHERE id = :id");
         if($p->getId()) $sql->bindValue(':id', $p->getId());
         if($p->getQuantidade()) $sql->bindValue(':amount', $p->getQuantidade());
@@ -33,10 +33,14 @@ class DaoProdutos implements produtoDao
     }
 
     public function reduzEstoque(Produtos $p){
-        $sql1 = $this->conexao->query("SELECT * FROM product WHERE id = 4");
+        //saber quanto que tem no estoque
+        $sql1 = $this->conexao->prepare("SELECT * FROM product WHERE id = :id");
+        $sql1->bindValue(":id", $p->getId());
+        $sql1->execute();
         $data = $sql1->fetch();
         echo $data['amount'];
 
+        //atualiza a quantidade
         $sql = $this->conexao->prepare("UPDATE product SET amount = :amount WHERE id = :id");
         $sql->bindValue(':id', $p->getId());
         $sql->bindValue(':amount', ($data['amount'] - $p->getQuantidade()));
