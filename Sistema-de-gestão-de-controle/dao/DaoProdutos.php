@@ -37,6 +37,7 @@ class DaoProdutos implements produtoDao
         $sql1 = $this->conexao->prepare("SELECT * FROM product WHERE id = :id");
         $sql1->bindValue(":id", $p->getId());
         $sql1->execute();
+        if ($sql1->rowCount() < 1) return false;
         $data = $sql1->fetch();
         echo $data['amount'];
 
@@ -45,6 +46,7 @@ class DaoProdutos implements produtoDao
         $sql->bindValue(':id', $p->getId());
         $sql->bindValue(':amount', ($data['amount'] - $p->getQuantidade()));
         $sql->execute();
+        return true;
     }
 
     public function remove($id)

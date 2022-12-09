@@ -1,5 +1,13 @@
 <?php
 require "conexao.php";
+session_start();  
+
+$flash = "";
+if(isset($_SESSION["errorProduto"])){
+  $flash = $_SESSION["errorProduto"];
+  $_SESSION["errorProduto"] = "";
+  echo "<script> alert('Produto não encontrado') </script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

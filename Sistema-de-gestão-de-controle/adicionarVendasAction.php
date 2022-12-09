@@ -21,24 +21,30 @@ $codigo = filter_input(INPUT_POST, "codigoP");
 $_SESSION["flag"] = "venda";
 
 if ($date  && $total && $produto && $quantidade && $vendedor && $status && $codigo) {
-    $vendas = new Vendas();
-    $vendas->setVendedor($vendedor);
-    $vendas->setProduto($produto);
-    $vendas->setQuantidade($quantidade);
-    $vendas->setStatus($status);
-    $vendas->setData($date);
-    $vendas->setTotal($total);
-    $vendas->setCodigo($codigo);
-    $DaoVenda->add($vendas);
-
     //Remove em produto
     $produto = new Produtos();
     $produto->setId($codigo);
     $produto->setQuantidade($quantidade);
-    $DaoProduto->reduzEstoque($produto);
+    $teste = $DaoProduto->reduzEstoque($produto);
 
-    header("location: index.php");
-    exit;
+    if ($teste) {
+        $vendas = new Vendas();
+        $vendas->setVendedor($vendedor);
+        $vendas->setProduto($produto);
+        $vendas->setQuantidade($quantidade);
+        $vendas->setStatus($status);
+        $vendas->setData($date);
+        $vendas->setTotal($total);
+        $vendas->setCodigo($codigo);
+        $DaoVenda->add($vendas);
+        header("location: index.php");
+        exit;
+    } else {
+        $_SESSION["errorProduto"] = "Produto não encontrado";
+        header("location: adicionarVendas.php");
+        exit;
+    }
+
 } else {
     header("location: adicionarVendas.php");
     exit;
