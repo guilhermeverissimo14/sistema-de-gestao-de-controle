@@ -29,14 +29,13 @@ if ($date  && $total && $produto && $quantidade && $vendedor && $status && $codi
     $vendas->setData($date);
     $vendas->setTotal($total);
     $vendas->setCodigo($codigo);
-
     $DaoVenda->add($vendas);
 
     //Remove em produto
     $produto = new Produtos();
     $produto->setId($codigo);
     $produto->setQuantidade($quantidade);
-    $DaoProduto->edit($produto);
+    $DaoProduto->reduzEstoque($produto);
 
     header("location: index.php");
     exit;

@@ -237,7 +237,7 @@ $usuarioLogado = $usuarioDao->autenticacao($_SESSION['token']);
         <!-- tabela de prudutos -->
         <div id="tb-produto">
             <h1>Tabela de produtos</h1>
-            <a class="adicionar" href="adicionarProdutos.php">Adicionar</a>
+            <!--<a class="adicionar" href="adicionarProdutos.php">Adicionar</a>-->
             <table>
                 <tr>
                     <th>Id</th>
