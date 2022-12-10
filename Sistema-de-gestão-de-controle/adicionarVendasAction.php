@@ -11,7 +11,7 @@ $DaoProduto = new DaoProdutos($conexao);
 $id = filter_input(INPUT_POST, "id");
 $date = filter_input(INPUT_POST, "date");
 $total = filter_input(INPUT_POST, "total");
-$produto = filter_input(INPUT_POST, "produto");
+$produtoI = filter_input(INPUT_POST, "produto");
 $quantidade = filter_input(INPUT_POST, "quantidade");
 $vendedor = filter_input(INPUT_POST, "vendedor");
 $status = filter_input(INPUT_POST, "status");
@@ -20,7 +20,7 @@ $codigo = filter_input(INPUT_POST, "codigoP");
 //codigo para a tabela nao recarregar apos alguma edição
 $_SESSION["flag"] = "venda";
 
-if ($date  && $total && $produto && $quantidade && $vendedor && $status && $codigo) {
+if ($date  && $total && $produtoI && $quantidade && $vendedor && $status && $codigo) {
     //Remove em produto
     $produto = new Produtos();
     $produto->setId($codigo);
@@ -30,7 +30,7 @@ if ($date  && $total && $produto && $quantidade && $vendedor && $status && $codi
     if ($teste) {
         $vendas = new Vendas();
         $vendas->setVendedor($vendedor);
-        $vendas->setProduto($produto);
+        $vendas->setProduto($produtoI);
         $vendas->setQuantidade($quantidade);
         $vendas->setStatus($status);
         $vendas->setData($date);
