@@ -26,10 +26,6 @@ function tabelaUsuarios() {
     document.getElementById('tb-usuario').style.display = 'block';
 }
 function tabelaProdutos() {
-    if(acesso >= 2){
-        alert('Você não tem permissão!! obs: somente o gerente pode acessar essa página!');
-        return false;
-    }
     fecharTabelas();
     document.getElementById('tb-produto').style.display = 'block';
 }
