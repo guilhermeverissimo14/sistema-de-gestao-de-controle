@@ -40,7 +40,7 @@ if ($date  && $total && $produtoI && $quantidade && $vendedor && $status && $cod
         header("location: index.php");
         exit;
     } else {
-        $_SESSION["errorProduto"] = "Produto não encontrado";
+        $_SESSION["errorProduto"] = "Produto não encontrado ou Quantidade nao disponivel";
         header("location: adicionarVendas.php");
         exit;
     }

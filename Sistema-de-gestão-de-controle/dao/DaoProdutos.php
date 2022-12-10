@@ -39,7 +39,7 @@ class DaoProdutos implements produtoDao
         $sql1->execute();
         if ($sql1->rowCount() < 1) return false;
         $data = $sql1->fetch();
-        if ($data['amount'] < 1) return false;
+        if ($data['amount']< $p->getQuantidade()) return false;
         //echo $data['amount'];
 
         //atualiza a quantidade
