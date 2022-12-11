@@ -121,7 +121,7 @@ $usuarioLogado = $usuarioDao->autenticacao($_SESSION['token']);
                 <?php foreach ($lista as $item) : ?>
                     <tr>
                         <td><?= $item->getId() ?></td>
-                        <td><?= $item->getData() ?></td>
+                        <td><?= date("d/m/Y",strtotime( $item->getData())) ?></td>
                         <td><?= $item->getQuantidade() ?></td>
                         <td><?= $item->getProduto() ?></td>
                         <td><?= $item->getCodigo() ?></td>
